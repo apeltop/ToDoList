@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  Test.swift
 //  ToDoList
 //
 //  Created by DGSW_TEACHER on 2016. 11. 5..
@@ -8,5 +8,6 @@
 
 import UIKit
 
-class LoginViewController: NSObject {
+class Test: UIViewContro] {
+
 }
