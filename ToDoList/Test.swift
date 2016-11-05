@@ -8,6 +8,6 @@
 
 import UIKit
 
-class Test: UIViewContro] {
+class Test: UIViewController {
 
 }
