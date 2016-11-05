@@ -15,6 +15,7 @@
 		AE35E4C41DCD87E9007185A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE35E4C21DCD87E9007185A9 /* LaunchScreen.storyboard */; };
 		AE35E4CF1DCD87E9007185A9 /* ToDoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE35E4CE1DCD87E9007185A9 /* ToDoListTests.swift */; };
 		AE35E4DA1DCD87E9007185A9 /* ToDoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE35E4D91DCD87E9007185A9 /* ToDoListUITests.swift */; };
+		C0E463A11DCDA60E0017FB24 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E463A01DCDA60E0017FB24 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		AE35E4D51DCD87E9007185A9 /* ToDoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE35E4D91DCD87E9007185A9 /* ToDoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListUITests.swift; sourceTree = "<group>"; };
 		AE35E4DB1DCD87E9007185A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0E463A01DCDA60E0017FB24 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		AE35E4B61DCD87E9007185A9 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				C0E4639F1DCDA5FB0017FB24 /* Main */,
 				AE35E4B71DCD87E9007185A9 /* AppDelegate.swift */,
 				AE35E4B91DCD87E9007185A9 /* MasterViewController.swift */,
 				AE35E4BB1DCD87E9007185A9 /* DetailViewController.swift */,
@@ -126,6 +129,14 @@
 				AE35E4DB1DCD87E9007185A9 /* Info.plist */,
 			);
 			path = ToDoListUITests;
+			sourceTree = "<group>";
+		};
+		C0E4639F1DCDA5FB0017FB24 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C0E463A01DCDA60E0017FB24 /* MainViewController.swift */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,13 +207,16 @@
 				TargetAttributes = {
 					AE35E4B31DCD87E9007185A9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 					};
 					AE35E4C91DCD87E9007185A9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = AE35E4B31DCD87E9007185A9;
 					};
 					AE35E4D41DCD87E9007185A9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = AE35E4B31DCD87E9007185A9;
 					};
 				};
@@ -262,6 +276,7 @@
 				AE35E4BC1DCD87E9007185A9 /* DetailViewController.swift in Sources */,
 				AE35E4BA1DCD87E9007185A9 /* MasterViewController.swift in Sources */,
 				AE35E4B81DCD87E9007185A9 /* AppDelegate.swift in Sources */,
+				C0E463A11DCDA60E0017FB24 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +422,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DGSWiOS.ToDoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -418,6 +434,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DGSWiOS.ToDoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -429,6 +446,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DGSWiOS.ToDoListTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToDoList.app/ToDoList";
 			};
 			name = Debug;
@@ -441,6 +459,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DGSWiOS.ToDoListTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToDoList.app/ToDoList";
 			};
 			name = Release;
@@ -452,6 +471,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DGSWiOS.ToDoListUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = ToDoList;
 			};
 			name = Debug;
@@ -463,6 +483,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DGSWiOS.ToDoListUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = ToDoList;
 			};
 			name = Release;
@@ -486,6 +507,7 @@
 				AE35E4E01DCD87E9007185A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE35E4E11DCD87E9007185A9 /* Build configuration list for PBXNativeTarget "ToDoListTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +516,7 @@
 				AE35E4E31DCD87E9007185A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE35E4E41DCD87E9007185A9 /* Build configuration list for PBXNativeTarget "ToDoListUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +525,7 @@
 				AE35E4E61DCD87E9007185A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
