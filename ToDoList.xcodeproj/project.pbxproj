@@ -101,10 +101,10 @@
 		AE35E4B61DCD87E9007185A9 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				C02528F01DCDA973002A75B5 /* DetailView */,
 				C0E4639F1DCDA5FB0017FB24 /* Main */,
 				AE35E4B71DCD87E9007185A9 /* AppDelegate.swift */,
 				AE35E4B91DCD87E9007185A9 /* MasterViewController.swift */,
-				AE35E4BB1DCD87E9007185A9 /* DetailViewController.swift */,
 				AE35E4BD1DCD87E9007185A9 /* Main.storyboard */,
 				AE35E4C01DCD87E9007185A9 /* Assets.xcassets */,
 				AE35E4C21DCD87E9007185A9 /* LaunchScreen.storyboard */,
@@ -130,6 +130,14 @@
 				AE35E4DB1DCD87E9007185A9 /* Info.plist */,
 			);
 			path = ToDoListUITests;
+			sourceTree = "<group>";
+		};
+		C02528F01DCDA973002A75B5 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				AE35E4BB1DCD87E9007185A9 /* DetailViewController.swift */,
+			);
+			name = DetailView;
 			sourceTree = "<group>";
 		};
 		C0E4639F1DCDA5FB0017FB24 /* Main */ = {

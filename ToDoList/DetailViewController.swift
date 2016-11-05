@@ -11,7 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-
+//Detail//////////////
 
     var detailItem: AnyObject? {
         didSet {
@@ -25,7 +25,7 @@ class DetailViewController: UIViewController {
         if let detail = self.detailItem {
             if let label = self.detailDescriptionLabel {
                 label.text = detail.description
-            }
+            }//
         }
     }
 
