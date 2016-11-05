@@ -15,7 +15,6 @@
 		AE35E4C41DCD87E9007185A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE35E4C21DCD87E9007185A9 /* LaunchScreen.storyboard */; };
 		AE35E4CF1DCD87E9007185A9 /* ToDoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE35E4CE1DCD87E9007185A9 /* ToDoListTests.swift */; };
 		AE35E4DA1DCD87E9007185A9 /* ToDoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE35E4D91DCD87E9007185A9 /* ToDoListUITests.swift */; };
-		AEC2C6991DCDA61200B8A426 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2C6981DCDA61200B8A426 /* LoginViewController.swift */; };
 		AEC2C69B1DCDA7CC00B8A426 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2C69A1DCDA7CC00B8A426 /* Test.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +50,6 @@
 		AE35E4D51DCD87E9007185A9 /* ToDoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE35E4D91DCD87E9007185A9 /* ToDoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListUITests.swift; sourceTree = "<group>"; };
 		AE35E4DB1DCD87E9007185A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AEC2C6981DCDA61200B8A426 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AEC2C69A1DCDA7CC00B8A426 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +101,6 @@
 		AE35E4B61DCD87E9007185A9 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				AEC2C6971DCDA5EC00B8A426 /* Login */,
 				AE35E4B71DCD87E9007185A9 /* AppDelegate.swift */,
 				AE35E4B91DCD87E9007185A9 /* MasterViewController.swift */,
 				AE35E4BB1DCD87E9007185A9 /* DetailViewController.swift */,
@@ -132,14 +129,6 @@
 				AE35E4DB1DCD87E9007185A9 /* Info.plist */,
 			);
 			path = ToDoListUITests;
-			sourceTree = "<group>";
-		};
-		AEC2C6971DCDA5EC00B8A426 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				AEC2C6981DCDA61200B8A426 /* LoginViewController.swift */,
-			);
-			name = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +262,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEC2C6991DCDA61200B8A426 /* LoginViewController.swift in Sources */,
 				AE35E4BC1DCD87E9007185A9 /* DetailViewController.swift in Sources */,
 				AEC2C69B1DCDA7CC00B8A426 /* Test.swift in Sources */,
 				AE35E4BA1DCD87E9007185A9 /* MasterViewController.swift in Sources */,
