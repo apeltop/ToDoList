@@ -9,5 +9,6 @@
 import UIKit
 
 class LoginViewController: NSObject {
+    var accessibilityFrame
 
 }
