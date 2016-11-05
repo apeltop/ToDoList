@@ -11,7 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-
+//Detail//////////////
 
     var detailItem: AnyObject? {
         didSet {
