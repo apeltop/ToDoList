@@ -65,6 +65,19 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+    /*
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "sgDetail"{
+            let cell = sender as! UITableViewCell
+            let indexPath = self.tableView.indexPathForCell(cell)
+            let detailView = segue.destinationViewController as!
+                DetailViewController
+            detailView.receiveItem(listTitles[(indexPath?.row)!])
+        }*/
 }
+
+
+    
+

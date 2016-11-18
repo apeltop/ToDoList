@@ -87,10 +87,10 @@
             </objects>
             <point key="canvasLocation" x="-110" y="107"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="1Xc-Ie-vRi">
             <objects>
-                <viewController id="xGR-EE-sdu" sceneMemberID="viewController">
+                <viewController id="xGR-EE-sdu" customClass="DetailViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0dZ-Bj-VJW"/>
                         <viewControllerLayoutGuide type="bottom" id="wVJ-8B-O7D"/>
@@ -133,7 +133,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(여기에다가 제출할 파일 올림)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oey-nY-Vcw">
-                                <rect key="frame" x="18" y="446" width="341" height="159"/>
+                                <rect key="frame" x="16" y="446" width="341" height="159"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -146,17 +146,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="dhfgj" translatesAutoresizingMaskIntoConstraints="NO" id="jAI-cr-NtN">
-                                <rect key="frame" x="17" y="159" width="343" height="188"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="내용" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bev-1c-wDF">
+                                <rect key="frame" x="16" y="169" width="343" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Isc-PK-vqi"/>
+                    <connections>
+                        <outlet property="DeadLineLabel" destination="qCQ-3e-EaG" id="MFV-8q-i6V"/>
+                        <outlet property="DetailTitleLabel" destination="bev-1c-wDF" id="W2c-Wa-cTR"/>
+                        <outlet property="MainTitle" destination="dCL-j8-M48" id="Cwc-sI-ntp"/>
+                        <outlet property="MainTitleLabel" destination="dCL-j8-M48" id="Pqr-Ky-pdA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="058-gU-OEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

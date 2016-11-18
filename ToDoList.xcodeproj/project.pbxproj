@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AE35E4B81DCD87E9007185A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE35E4B71DCD87E9007185A9 /* AppDelegate.swift */; };
-		AE35E4BC1DCD87E9007185A9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE35E4BB1DCD87E9007185A9 /* DetailViewController.swift */; };
 		AE35E4BF1DCD87E9007185A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE35E4BD1DCD87E9007185A9 /* Main.storyboard */; };
 		AE35E4C11DCD87E9007185A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE35E4C01DCD87E9007185A9 /* Assets.xcassets */; };
 		AE35E4C41DCD87E9007185A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE35E4C21DCD87E9007185A9 /* LaunchScreen.storyboard */; };
@@ -16,6 +15,7 @@
 		AE35E4DA1DCD87E9007185A9 /* ToDoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE35E4D91DCD87E9007185A9 /* ToDoListUITests.swift */; };
 		C007C75F1DD1DE22006A285C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C007C75E1DD1DE22006A285C /* MainViewController.swift */; };
 		C007C7621DD1DE63006A285C /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C007C7611DD1DE63006A285C /* ListTableViewCell.swift */; };
+		C0960FE31DDF14C90016BDAF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0960FE21DDF14C90016BDAF /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,6 @@
 /* Begin PBXFileReference section */
 		AE35E4B41DCD87E9007185A9 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE35E4B71DCD87E9007185A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AE35E4BB1DCD87E9007185A9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AE35E4BE1DCD87E9007185A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE35E4C01DCD87E9007185A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE35E4C31DCD87E9007185A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		AE35E4DB1DCD87E9007185A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C007C75E1DD1DE22006A285C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../MainViewController.swift; sourceTree = "<group>"; };
 		C007C7611DD1DE63006A285C /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewCell.swift; path = ../ListTableViewCell.swift; sourceTree = "<group>"; };
+		C0960FE21DDF14C90016BDAF /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +142,7 @@
 		C02528F21DCDAE65002A75B5 /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
-				AE35E4BB1DCD87E9007185A9 /* DetailViewController.swift */,
+				C0960FE21DDF14C90016BDAF /* DetailViewController.swift */,
 			);
 			name = DetailView;
 			sourceTree = "<group>";
@@ -283,8 +283,8 @@
 			files = (
 				C007C75F1DD1DE22006A285C /* MainViewController.swift in Sources */,
 				C007C7621DD1DE63006A285C /* ListTableViewCell.swift in Sources */,
-				AE35E4BC1DCD87E9007185A9 /* DetailViewController.swift in Sources */,
 				AE35E4B81DCD87E9007185A9 /* AppDelegate.swift in Sources */,
+				C0960FE31DDF14C90016BDAF /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
