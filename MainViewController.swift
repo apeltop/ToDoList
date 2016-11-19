@@ -77,9 +77,12 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             let indexPath = self.mainTableView.indexPathForCell(cell)
             let detailView = segue.destinationViewController as!
             DetailViewController
+            
             detailView.receiveMainTitle(listTitles[(indexPath?.row)!])
             detailView.receiveDetailContent(listContents[(indexPath?.row)!])
             detailView.receiveDeadLine(listDeadLines[(indexPath?.row)!])
+            
+            detailView.num = indexPath!.row
         }
     }
 }

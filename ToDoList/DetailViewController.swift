@@ -9,24 +9,24 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    var num = 0
     var receiveMainTitle = ""
     var receiveDetailContent = ""
     var receiveDeadLine = ""
     
-    
-    @IBOutlet weak var MainTitleLabel: UILabel!
+    @IBOutlet weak var MainTitleField: UITextField!
     @IBOutlet weak var DetailContentsLabel: UILabel!
     @IBOutlet weak var DeadLineLabel: UILabel!
     
-    @IBOutlet weak var AddFile: UIButton!
+    @IBOutlet weak var DoneButton: UIBarButtonItem!
     
-    @IBOutlet weak var Fix: UIBarButtonItem!
+    @IBOutlet weak var AddFile: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        MainTitleLabel.text = receiveMainTitle
+        MainTitleField.text = receiveMainTitle
         DetailContentsLabel.text = receiveDetailContent
         DeadLineLabel.text = receiveDeadLine
     }
@@ -54,6 +54,9 @@ class DetailViewController: UIViewController {
         print(itemDeadLine)
     }
     
+    @IBAction func FixDone(sender: UIBarButtonItem) {
+        listTitles[num] = MainTitleField.text!
+    }
     /*
      // MARK: - Navigation
      
