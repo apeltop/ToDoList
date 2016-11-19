@@ -18,6 +18,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var DetailContentsLabel: UILabel!
     @IBOutlet weak var DeadLineLabel: UILabel!
     
+    @IBOutlet weak var AddFile: UIButton!
+    
+    @IBOutlet weak var Cancel: UIBarButtonItem!
+    @IBOutlet weak var Fix: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,7 +51,7 @@ class DetailViewController: UIViewController {
     
     func receiveDeadLine(itemDeadLine: String)
     {
-        receiveDeadLine = itemDeadLine
+        receiveDeadLine = "제출 기한: " + itemDeadLine
         print(itemDeadLine)
     }
     
