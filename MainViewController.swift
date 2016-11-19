@@ -67,6 +67,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         // Dispose of any resources that can be recreated.
     }
     
+    //<DetailViewPart>
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         // Get the new view controller using segue.destinationViewController.
@@ -82,9 +83,10 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             detailView.receiveDetailContent(listContents[(indexPath?.row)!])
             detailView.receiveDeadLine(listDeadLines[(indexPath?.row)!])
             
-            detailView.num = indexPath!.row
+            detailView.cur = indexPath!.row
         }
     }
+    //<DetailViewPart/>
 }
 
 

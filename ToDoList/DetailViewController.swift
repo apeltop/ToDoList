@@ -9,13 +9,13 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    var num = 0
+    var cur = 0
     var receiveMainTitle = ""
     var receiveDetailContent = ""
     var receiveDeadLine = ""
     
     @IBOutlet weak var MainTitleField: UITextField!
-    @IBOutlet weak var DetailContentsLabel: UILabel!
+    @IBOutlet weak var DetailContentField: UITextField!
     @IBOutlet weak var DeadLineLabel: UILabel!
     
     @IBOutlet weak var DoneButton: UIBarButtonItem!
@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         MainTitleField.text = receiveMainTitle
-        DetailContentsLabel.text = receiveDetailContent
+        DetailContentField.text = receiveDetailContent
         DeadLineLabel.text = receiveDeadLine
     }
     
@@ -39,24 +39,24 @@ class DetailViewController: UIViewController {
     func receiveMainTitle(itemTitle: String)
     {
         receiveMainTitle = itemTitle
-        print(itemTitle)
     }
     
     func receiveDetailContent(itemContent: String)
     {
         receiveDetailContent = itemContent
-        print(itemContent)
     }
     
     func receiveDeadLine(itemDeadLine: String)
     {
         receiveDeadLine = "제출 기한: " + itemDeadLine
-        print(itemDeadLine)
     }
     
     @IBAction func FixDone(sender: UIBarButtonItem) {
-        listTitles[num] = MainTitleField.text!
+        listTitles[cur] = MainTitleField.text!
+        listContents[cur] = DetailContentField.text!
+        self.navigationController?.popViewControllerAnimated(true)
     }
+    
     /*
      // MARK: - Navigation
      
