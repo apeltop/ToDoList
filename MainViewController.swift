@@ -9,6 +9,7 @@
 import UIKit
 
 var listTitles = ["나르샤캠프 iOS반 숙제", "나르샤캠프 iOS반 어플 마무리짓기"]
+var listContents = ["이번달 안에 12월에 할 발표 PPT만들기", "나르샤 캠프 12월 초까지 프로젝트 끝내기"]
 var listDeadLines = ["2016.10.22 12:00까지", "2016.12.31 09:00까지"]
 var listImages = []
 
@@ -26,7 +27,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     }
     @IBOutlet weak var mainTableView: UITableView!
     
-
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -65,19 +66,24 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    /*
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
         if segue.identifier == "sgDetail"{
             let cell = sender as! UITableViewCell
-            let indexPath = self.tableView.indexPathForCell(cell)
+            let indexPath = self.mainTableView.indexPathForCell(cell)
             let detailView = segue.destinationViewController as!
-                DetailViewController
-            detailView.receiveItem(listTitles[(indexPath?.row)!])
-        }*/
+            DetailViewController
+            detailView.receiveMainTitle(listTitles[(indexPath?.row)!])
+            detailView.receiveDetailContent(listContents[(indexPath?.row)!])
+            detailView.receiveDeadLine(listDeadLines[(indexPath?.row)!])
+        }
+    }
 }
 
 
-    
+
 
