@@ -20,7 +20,6 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var AddFile: UIButton!
     
-    @IBOutlet weak var Cancel: UIBarButtonItem!
     @IBOutlet weak var Fix: UIBarButtonItem!
     
     override func viewDidLoad() {
