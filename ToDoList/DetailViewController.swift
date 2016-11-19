@@ -35,16 +35,19 @@ class DetailViewController: UIViewController {
     func receiveMainTitle(itemTitle: String)
     {
         receiveMainTitle = itemTitle
+        print(itemTitle)
     }
     
     func receiveDetailContent(itemContent: String)
     {
         receiveDetailContent = itemContent
+        print(itemContent)
     }
     
     func receiveDeadLine(itemDeadLine: String)
     {
         receiveDeadLine = itemDeadLine
+        print(itemDeadLine)
     }
     
     /*

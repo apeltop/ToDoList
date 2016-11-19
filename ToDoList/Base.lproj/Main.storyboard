@@ -39,7 +39,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="roL-s3-gtk" id="msf-ar-2fJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="나르샤캠프 iOS반 숙제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6YB-Ro-f65" userLabel="listTitle">
@@ -64,7 +64,7 @@
                                             <outlet property="listDeadLine" destination="Akn-pD-jy7" id="j4c-kq-f2v"/>
                                             <outlet property="listImageView" destination="eRe-el-ed8" id="Bpw-FY-x63"/>
                                             <outlet property="listTitle" destination="6YB-Ro-f65" id="K7d-7u-ZRE"/>
-                                            <segue destination="xGR-EE-sdu" kind="push" id="ac0-JZ-75a"/>
+                                            <segue destination="xGR-EE-sdu" kind="push" identifier="sgDetail" id="ac0-JZ-75a"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -143,9 +143,9 @@
                     <navigationItem key="navigationItem" id="Isc-PK-vqi"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="DeadLineLabel" destination="qCQ-3e-EaG" id="MFV-8q-i6V"/>
-                        <outlet property="DetailTitleLabel" destination="bev-1c-wDF" id="W2c-Wa-cTR"/>
-                        <outlet property="MainTitleLabel" destination="dCL-j8-M48" id="Pqr-Ky-pdA"/>
+                        <outlet property="DeadLineLabel" destination="qCQ-3e-EaG" id="t5q-5e-Xux"/>
+                        <outlet property="DetailContentsLabel" destination="bev-1c-wDF" id="HVA-oe-LX1"/>
+                        <outlet property="MainTitleLabel" destination="dCL-j8-M48" id="0Ym-dI-prw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="058-gU-OEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
