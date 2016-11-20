@@ -67,6 +67,10 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        mainTableView.reloadData()
+    }
+    
     //<DetailViewPart>
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
