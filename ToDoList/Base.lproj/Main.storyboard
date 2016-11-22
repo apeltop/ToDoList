@@ -25,7 +25,11 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <barButtonItem systemItem="trash" id="WbN-Wn-eV3"/>
+                                    <barButtonItem systemItem="trash" id="WbN-Wn-eV3">
+                                        <connections>
+                                            <action selector="TrashButton:" destination="4SQ-m6-KfU" id="2t7-Pf-lFc"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem tag="1" width="302" systemItem="fixedSpace" id="gVh-Y8-Ldf"/>
                                     <barButtonItem systemItem="add" id="zpy-In-KXc">
                                         <connections>
@@ -57,7 +61,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2016.10.22 12:00까지" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akn-pD-jy7" userLabel="ListDeadLine">
-                                                    <rect key="frame" x="78" y="33" width="281" height="21"/>
+                                                    <rect key="frame" x="78" y="40" width="281" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
@@ -89,9 +93,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="siL-ey-gWv" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-110" y="107"/>
+            <point key="canvasLocation" x="-111.2" y="106.59670164917542"/>
         </scene>
-        <!--Add View Controller-->
+        <!--Add Plan-->
         <scene sceneID="XYh-Fb-Obi">
             <objects>
                 <viewController id="WLg-qJ-R13" customClass="AddViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -104,10 +108,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0cy-BW-BHC">
-                                <rect key="frame" x="100" y="93" width="242" height="30"/>
+                                <rect key="frame" x="72" y="93" width="270" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="제목:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYa-PR-KTW">
@@ -118,7 +122,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="해야 할 일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnU-Hn-J4X">
-                                <rect key="frame" x="28" y="146" width="68" height="21"/>
+                                <rect key="frame" x="28" y="152" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -128,7 +132,7 @@
                                 <rect key="frame" x="28" y="175" width="314" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="PQG-J2-LJi">
@@ -141,15 +145,8 @@
                                     <action selector="DTPicker:" destination="WLg-qJ-R13" eventType="valueChanged" id="sz2-vQ-Moh"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="현재 시간: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhv-nB-98a">
-                                <rect key="frame" x="28" y="318" width="314" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="선택 시간: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hz9-Ra-J05">
-                                <rect key="frame" x="28" y="576" width="314" height="31"/>
+                                <rect key="frame" x="100" y="576" width="242" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -163,10 +160,24 @@
                                     <action selector="AddDoe:" destination="WLg-qJ-R13" eventType="touchUpInside" id="ceZ-8Z-zna"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="선택 시간:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9K5-fF-obU">
+                                <rect key="frame" x="28" y="581" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="현재 시간: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhv-nB-98a">
+                                <rect key="frame" x="28" y="327" width="314" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KeQ-il-Kuu"/>
+                    <navigationItem key="navigationItem" title="Add Plan" id="KeQ-il-Kuu"/>
                     <connections>
                         <outlet property="Selection_Label" destination="Hz9-Ra-J05" id="99O-O6-U2v"/>
                         <outlet property="Selection_time" destination="Hz9-Ra-J05" id="va5-LQ-vtH"/>
@@ -179,7 +190,7 @@
             </objects>
             <point key="canvasLocation" x="-111.2" y="859.52023988005999"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Fix Plan-->
         <scene sceneID="1Xc-Ie-vRi">
             <objects>
                 <viewController id="xGR-EE-sdu" customClass="DetailViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -221,14 +232,14 @@
                                 <rect key="frame" x="16" y="136" width="343" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Isc-PK-vqi">
+                    <navigationItem key="navigationItem" title="Fix Plan" id="Isc-PK-vqi">
                         <barButtonItem key="rightBarButtonItem" title="완료" id="Pmz-Fu-uEz">
                             <connections>
                                 <action selector="FixDone:" destination="xGR-EE-sdu" id="tGP-1g-us8"/>

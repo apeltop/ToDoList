@@ -26,8 +26,6 @@ class AddViewController: UIViewController {
         super.viewDidLoad()
         
         NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: timeSelector, userInfo: nil, repeats: true)
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,21 +37,22 @@ class AddViewController: UIViewController {
         let datePickerView = sender
         
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss EEE"
-        Selection_time.text = "선택 시간: " + formatter.stringFromDate(datePickerView.date)
+        formatter.dateFormat = "yyyy-MM-dd(EEE) HH:mm"
+        Selection_time.text = formatter.stringFromDate(datePickerView.date)
     }
     
     func updateTime(){
         let date = NSDate()
         
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss EEE"
+        formatter.dateFormat = "yyyy-MM-dd(EEE) HH:mm"
         current_time.text = "현재 시간: " + formatter.stringFromDate(date)
     }
+    
     @IBAction func AddDoe(sender: UIButton) {
         listTitles.append(Title_text.text!)
         listContents.append(to_do.text!)
-        listDeadLines.append(current_time.text!)
+        listDeadLines.append(Selection_time.text! + "까지")
         
         //        listImages.append()
         
