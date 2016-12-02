@@ -16,6 +16,7 @@
 		AE68418C1DE148CA00D713C3 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE68418B1DE148CA00D713C3 /* AddViewController.swift */; };
 		C007C75F1DD1DE22006A285C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C007C75E1DD1DE22006A285C /* MainViewController.swift */; };
 		C007C7621DD1DE63006A285C /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C007C7611DD1DE63006A285C /* ListTableViewCell.swift */; };
+		C01B485C1DF15DE200B20403 /* ConfigTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B485B1DF15DE200B20403 /* ConfigTableViewController.swift */; };
 		C0960FE31DDF14C90016BDAF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0960FE21DDF14C90016BDAF /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		AE68418B1DE148CA00D713C3 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		C007C75E1DD1DE22006A285C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../MainViewController.swift; sourceTree = "<group>"; };
 		C007C7611DD1DE63006A285C /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewCell.swift; path = ../ListTableViewCell.swift; sourceTree = "<group>"; };
+		C01B485B1DF15DE200B20403 /* ConfigTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTableViewController.swift; sourceTree = "<group>"; };
 		C0960FE21DDF14C90016BDAF /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 		AE35E4B61DCD87E9007185A9 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				C01B485A1DF15DA600B20403 /* ConfigView */,
 				AE35E4BD1DCD87E9007185A9 /* Main.storyboard */,
 				C007C7601DD1DE27006A285C /* MainView */,
 				C02528F21DCDAE65002A75B5 /* DetailView */,
@@ -148,6 +151,14 @@
 				C007C7611DD1DE63006A285C /* ListTableViewCell.swift */,
 			);
 			name = MainView;
+			sourceTree = "<group>";
+		};
+		C01B485A1DF15DA600B20403 /* ConfigView */ = {
+			isa = PBXGroup;
+			children = (
+				C01B485B1DF15DE200B20403 /* ConfigTableViewController.swift */,
+			);
+			name = ConfigView;
 			sourceTree = "<group>";
 		};
 		C02528F21DCDAE65002A75B5 /* DetailView */ = {
@@ -295,6 +306,7 @@
 				AE68418C1DE148CA00D713C3 /* AddViewController.swift in Sources */,
 				C007C75F1DD1DE22006A285C /* MainViewController.swift in Sources */,
 				C007C7621DD1DE63006A285C /* ListTableViewCell.swift in Sources */,
+				C01B485C1DF15DE200B20403 /* ConfigTableViewController.swift in Sources */,
 				AE35E4B81DCD87E9007185A9 /* AppDelegate.swift in Sources */,
 				C0960FE31DDF14C90016BDAF /* DetailViewController.swift in Sources */,
 			);
