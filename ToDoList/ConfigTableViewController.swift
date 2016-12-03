@@ -21,6 +21,7 @@ class ConfigTableViewController: UITableViewController {
         
         let app = UIApplication.sharedApplication()
         let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert], categories: nil)
+        
         app.registerUserNotificationSettings(notificationSettings)
     }
     
