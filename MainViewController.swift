@@ -11,7 +11,6 @@ import UIKit
 var listTitles = ["나르샤캠프 iOS반 숙제", "나르샤캠프 iOS반 어플 마무리짓기"]
 var listContents = ["이번달 안에 12월에 할 발표 PPT만들기", "나르샤 캠프 12월 초까지 프로젝트 끝내기"]
 var listDeadLines = ["2016-10-22(Sun) 12:00까지", "2016-12-31(Fri) 09:00까지"]
-var listImages = []
 
 class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource{
     
@@ -50,6 +49,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             listTitles.removeAtIndex(indexPath.row)
+            listContents.removeAtIndex(indexPath.row)
             listDeadLines.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             
@@ -60,15 +60,15 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         super.viewDidLoad()
         mainTableView.dataSource = self
         mainTableView.delegate = self
+        self.navigationController?.navigationBar.hidden = false
+        self.navigationItem.hidesBackButton = true
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func TrashButton(sender: UIBarButtonItem) {
-        
-    }
+    
     
     override func viewWillAppear(animated: Bool) {
         mainTableView.reloadData()

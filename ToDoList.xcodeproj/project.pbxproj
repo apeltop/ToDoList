@@ -17,7 +17,12 @@
 		C007C75F1DD1DE22006A285C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C007C75E1DD1DE22006A285C /* MainViewController.swift */; };
 		C007C7621DD1DE63006A285C /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C007C7611DD1DE63006A285C /* ListTableViewCell.swift */; };
 		C01B485C1DF15DE200B20403 /* ConfigTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B485B1DF15DE200B20403 /* ConfigTableViewController.swift */; };
+		C058F3061DF2BAA5001CCD46 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C058F3021DF2BAA5001CCD46 /* Bolts.framework */; };
+		C058F3071DF2BAA6001CCD46 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C058F3031DF2BAA5001CCD46 /* FBSDKCoreKit.framework */; };
+		C058F3081DF2BAA6001CCD46 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C058F3041DF2BAA5001CCD46 /* FBSDKLoginKit.framework */; };
+		C058F3091DF2BAA6001CCD46 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C058F3051DF2BAA5001CCD46 /* FBSDKShareKit.framework */; };
 		C0960FE31DDF14C90016BDAF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0960FE21DDF14C90016BDAF /* DetailViewController.swift */; };
+		C09B4D5E1DF2BBFB00F7D08D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B4D5D1DF2BBFB00F7D08D /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +59,12 @@
 		C007C75E1DD1DE22006A285C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../MainViewController.swift; sourceTree = "<group>"; };
 		C007C7611DD1DE63006A285C /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewCell.swift; path = ../ListTableViewCell.swift; sourceTree = "<group>"; };
 		C01B485B1DF15DE200B20403 /* ConfigTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTableViewController.swift; sourceTree = "<group>"; };
+		C058F3021DF2BAA5001CCD46 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		C058F3031DF2BAA5001CCD46 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		C058F3041DF2BAA5001CCD46 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		C058F3051DF2BAA5001CCD46 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		C0960FE21DDF14C90016BDAF /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C09B4D5D1DF2BBFB00F7D08D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +72,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C058F3091DF2BAA6001CCD46 /* FBSDKShareKit.framework in Frameworks */,
+				C058F3061DF2BAA5001CCD46 /* Bolts.framework in Frameworks */,
+				C058F3071DF2BAA6001CCD46 /* FBSDKCoreKit.framework in Frameworks */,
+				C058F3081DF2BAA6001CCD46 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +99,7 @@
 		AE35E4AB1DCD87E9007185A9 = {
 			isa = PBXGroup;
 			children = (
+				C058F3011DF2BA89001CCD46 /* Frameworks */,
 				AE35E4B61DCD87E9007185A9 /* ToDoList */,
 				AE35E4CD1DCD87E9007185A9 /* ToDoListTests */,
 				AE35E4D81DCD87E9007185A9 /* ToDoListUITests */,
@@ -149,6 +164,7 @@
 			children = (
 				C007C75E1DD1DE22006A285C /* MainViewController.swift */,
 				C007C7611DD1DE63006A285C /* ListTableViewCell.swift */,
+				C09B4D5D1DF2BBFB00F7D08D /* LoginViewController.swift */,
 			);
 			name = MainView;
 			sourceTree = "<group>";
@@ -167,6 +183,17 @@
 				C0960FE21DDF14C90016BDAF /* DetailViewController.swift */,
 			);
 			name = DetailView;
+			sourceTree = "<group>";
+		};
+		C058F3011DF2BA89001CCD46 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C058F3021DF2BAA5001CCD46 /* Bolts.framework */,
+				C058F3031DF2BAA5001CCD46 /* FBSDKCoreKit.framework */,
+				C058F3041DF2BAA5001CCD46 /* FBSDKLoginKit.framework */,
+				C058F3051DF2BAA5001CCD46 /* FBSDKShareKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C09B4D5E1DF2BBFB00F7D08D /* LoginViewController.swift in Sources */,
 				AE68418C1DE148CA00D713C3 /* AddViewController.swift in Sources */,
 				C007C75F1DD1DE22006A285C /* MainViewController.swift in Sources */,
 				C007C7621DD1DE63006A285C /* ListTableViewCell.swift in Sources */,
@@ -452,6 +480,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ToDoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DGSWiOS.ToDoList;
@@ -465,6 +497,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ToDoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;

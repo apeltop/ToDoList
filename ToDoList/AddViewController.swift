@@ -59,7 +59,7 @@ class AddViewController: UIViewController {
         Title_text.text = ""
         to_do.text = ""
         current_time.text = ""
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     /*
