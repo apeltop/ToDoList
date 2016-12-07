@@ -38,15 +38,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        let now=NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd(EEE)"
+        dateFormatter.locale = NSLocale(localeIdentifier: "ko_KR")
+        dateFormatter.stringFromDate(now)
+        //selecttime
+        func DTPicker(sender:UIDatePicker)
+        {
+            
+            let formatter = NSDateFormatter()
+            formatter.dateFormat="yyyy-MM-dd(EEE)"
+        }
+        
+        
+        
+        
+        
+        
         let app = UIApplication.sharedApplication()
         let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert], categories: nil)
         app.registerUserNotificationSettings(notificationSettings)
-        let alertTime = NSDate().dateByAddingTimeInterval(1)
+        let alertTime = NSDate().dateByAddingTimeInterval(15)
         let notifyAlarm = UILocalNotification()
+        
+      //  notifyAlarm.repeatInterval = NSCalendarUnit.Second
+        //timeZone = NSTimeZone.defaultTimeZone()
         
         notifyAlarm.fireDate = alertTime
         notifyAlarm.timeZone = NSTimeZone.defaultTimeZone()
-        notifyAlarm.alertBody = "important metting in 30 minutes"
+        notifyAlarm.alertBody = "alert"
         app.scheduleLocalNotification(notifyAlarm)
     }
     
