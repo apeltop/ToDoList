@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController,UITextFieldDelegate {
     var cur = 0
     var receiveMainTitle = ""
     var receiveDetailContent = ""
@@ -32,6 +32,13 @@ class DetailViewController: UIViewController {
         DeadLineLabel.text = receiveDeadLine
         
         view.addGestureRecognizer(tap)
+        MainTitleField.delegate = self
+        DetailContentField.delegate = self
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        hideKeyboard()
+        return true
     }
     
     func hideKeyboard(){

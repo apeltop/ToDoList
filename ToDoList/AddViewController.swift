@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, UITextFieldDelegate {
     let timeSelector: Selector = #selector(AddViewController.updateTime)
     
     let interval = 1.0
@@ -30,6 +30,14 @@ class AddViewController: UIViewController {
         NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: timeSelector, userInfo: nil, repeats: true)
         
         view.addGestureRecognizer(tap)
+        Title_text.delegate = self
+        to_do.delegate = self
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        hideKeyboard()
+        return true
     }
     
     func hideKeyboard(){
