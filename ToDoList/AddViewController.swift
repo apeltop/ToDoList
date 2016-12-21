@@ -8,11 +8,14 @@
 
 import UIKit
 
-class AddViewController: UIViewController, UITextFieldDelegate {
+class AddViewController: UIViewController {
     let timeSelector: Selector = #selector(AddViewController.updateTime)
     
     let interval = 1.0
     var count = 0
+    
+    var SelectionTime = ""
+    var CurrentTime  = ""
     
     @IBOutlet weak var AddDoneButton: UIBarButtonItem!
     @IBOutlet weak var current_time: UILabel!
@@ -30,14 +33,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: timeSelector, userInfo: nil, repeats: true)
         
         view.addGestureRecognizer(tap)
-        Title_text.delegate = self
-        to_do.delegate = self
-        
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        hideKeyboard()
-        return true
     }
     
     func hideKeyboard(){
@@ -55,6 +50,9 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd(EEE) HH:mm"
         Selection_time.text = formatter.stringFromDate(datePickerView.date)
+        
+        formatter.dateFormat = "yyyy:MM:dd:HH:mm"
+        SelectionTime = formatter.stringFromDate(datePickerView.date)
     }
     
     func updateTime(){
@@ -63,9 +61,29 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd(EEE) HH:mm"
         current_time.text = "현재 시간: " + formatter.stringFromDate(date)
+        
+        formatter.dateFormat = "yyyy:MM:dd:HH:mm"
+        CurrentTime = formatter.stringFromDate(date)
     }
     
     @IBAction func AddDoe(sender: UIButton) {
+        
+        let SelTime = SelectionTime.characters.split { $0 == ":" } .map { (x) -> Int in return Int(String(x))! }
+        
+        let SYear = SelTime[0]
+        let SMonth = SelTime[1]
+        let SDay = SelTime[2]
+        let SHours = SelTime[3]
+        let SMinutes = SelTime[4]
+        
+        let CurTime = CurrentTime.characters.split { $0 == ":" } .map { (x) -> Int in return Int(String(x))! }
+        
+        let CYear = CurTime[0]
+        let CMonth = CurTime[1]
+        let CDay = CurTime[2]
+        let CHours = CurTime[3]
+        let CMinutes = CurTime[4]
+        
         if(Title_text.text == "")
         {
             let TitleTempAlert = UIAlertController(title: "Warring", message: "제목을 입력하세요.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -90,12 +108,17 @@ class AddViewController: UIViewController, UITextFieldDelegate {
             presentViewController(TitleTempAlert, animated: true, completion: nil)
         }
             
+        else if( SYear<=CYear && SMonth<=CMonth && SDay<=CDay && SHours<=CHours && SMinutes<=CMinutes){
+            let TitleTempAlert = UIAlertController(title: "Warring", message: "시간이 맞지 않습니다", preferredStyle: UIAlertControllerStyle.Alert)
+            let TitleTempAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.Default, handler: nil)
+            TitleTempAlert.addAction(TitleTempAction)
+            presentViewController(TitleTempAlert, animated: true, completion: nil)
+        }
+            
         else{
             listTitles.append(Title_text.text!)
             listContents.append(to_do.text!)
             listDeadLines.append(Selection_time.text! + "까지")
-            
-            //        listImages.append()
             
             Title_text.text = ""
             to_do.text = ""
