@@ -58,16 +58,42 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func AddDoe(sender: UIButton) {
-        listTitles.append(Title_text.text!)
-        listContents.append(to_do.text!)
-        listDeadLines.append(Selection_time.text! + "까지")
-        
-        //        listImages.append()
-        
-        Title_text.text = ""
-        to_do.text = ""
-        current_time.text = ""
-        self.navigationController?.popViewControllerAnimated(true)
+        if(Title_text.text == "")
+        {
+            let TitleTempAlert = UIAlertController(title: "Warring", message: "제목을 입력하세요.", preferredStyle: UIAlertControllerStyle.Alert)
+            let TitleTempAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.Default, handler: nil)
+            TitleTempAlert.addAction(TitleTempAction)
+            presentViewController(TitleTempAlert, animated: true, completion: nil)
+        }
+            
+        else if(to_do.text == "")
+        {
+            let TitleTempAlert = UIAlertController(title: "Warring", message: "내용을 입력하세요.", preferredStyle: UIAlertControllerStyle.Alert)
+            let TitleTempAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.Default, handler: nil)
+            TitleTempAlert.addAction(TitleTempAction)
+            presentViewController(TitleTempAlert, animated: true, completion: nil)
+        }
+            
+        else if(Selection_time.text == "")
+        {
+            let TitleTempAlert = UIAlertController(title: "Warring", message: "시간을 선택 하세요.", preferredStyle: UIAlertControllerStyle.Alert)
+            let TitleTempAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.Default, handler: nil)
+            TitleTempAlert.addAction(TitleTempAction)
+            presentViewController(TitleTempAlert, animated: true, completion: nil)
+        }
+            
+        else{
+            listTitles.append(Title_text.text!)
+            listContents.append(to_do.text!)
+            listDeadLines.append(Selection_time.text! + "까지")
+            
+            //        listImages.append()
+            
+            Title_text.text = ""
+            to_do.text = ""
+            current_time.text = ""
+            self.navigationController?.popViewControllerAnimated(true)
+        }
     }
     
     /*
