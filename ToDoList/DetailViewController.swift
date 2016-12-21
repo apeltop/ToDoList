@@ -25,10 +25,17 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         // Do any additional setup after loading the view.
         MainTitleField.text = receiveMainTitle
         DetailContentField.text = receiveDetailContent
         DeadLineLabel.text = receiveDeadLine
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    func hideKeyboard(){
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {

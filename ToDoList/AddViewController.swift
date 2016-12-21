@@ -25,7 +25,15 @@ class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        
         NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: timeSelector, userInfo: nil, repeats: true)
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    func hideKeyboard(){
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
