@@ -106,7 +106,7 @@ class AddViewController: UIViewController {
         {
             let TitleTempAlert = UIAlertController(title: "Warring", message: "내용을 입력하세요.", preferredStyle: UIAlertControllerStyle.Alert)
             let TitleTempAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.Default, handler: nil)
-            TitleTempAlert.addAction(TitleTempAction)
+            TitleTempAlert.addAction(TitleTempAction)ㅋ
             presentViewController(TitleTempAlert, animated: true, completion: nil)
         }
             
