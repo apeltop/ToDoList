@@ -213,7 +213,7 @@
             </objects>
             <point key="canvasLocation" x="4672.8000000000002" y="-373.76311844077964"/>
         </scene>
-        <!--Qr Code View Controller-->
+        <!--내 QR코드-->
         <scene sceneID="OOc-O0-f5S">
             <objects>
                 <viewController id="qsr-zw-tPb" customClass="QrCodeViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -232,7 +232,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RNo-6n-aev"/>
+                    <navigationItem key="navigationItem" title="내 QR코드" id="RNo-6n-aev"/>
                     <connections>
                         <outlet property="qrImage" destination="PfJ-0H-K37" id="uwI-Tf-M33"/>
                     </connections>

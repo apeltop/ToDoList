@@ -9,7 +9,7 @@
 import UIKit
 
 class QrCodeViewController: UIViewController {
-
+    
     @IBOutlet weak var qrImage: UIImageView!
     
     var qrCodeImage:CIImage!
@@ -18,16 +18,18 @@ class QrCodeViewController: UIViewController {
         super.viewDidLoad()
         
         if qrCodeImage == nil {
-            let data = "김대용".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+            KOSessionTask.talkProfileTaskWithCompletionHandler({(profile, error) -> Void in
+                print(profile.nickName!)
+                let data = profile.nickName!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+                let filter = CIFilter(name: "CIQRCodeGenerator")
+                
+                filter!.setValue(data, forKey: "inputMessage")
+                filter!.setValue("Q", forKey: "inputCorrectionLevel")
+                
+                self.qrCodeImage = filter!.outputImage
+                self.qrImage.image = UIImage(CIImage: self.qrCodeImage)
+            })
             
-            
-            let filter = CIFilter(name: "CIQRCodeGenerator")
-            
-            filter!.setValue(data, forKey: "inputMessage")
-            filter!.setValue("Q", forKey: "inputCorrectionLevel")
-            
-            qrCodeImage = filter!.outputImage
-            qrImage.image = UIImage(CIImage: qrCodeImage!)
             //displayQRCodeImage()
         }
         
@@ -45,21 +47,21 @@ class QrCodeViewController: UIViewController {
         
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

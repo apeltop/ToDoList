@@ -133,7 +133,6 @@
 				AE35E4C01DCD87E9007185A9 /* Assets.xcassets */,
 				AE35E4C21DCD87E9007185A9 /* LaunchScreen.storyboard */,
 				AE35E4C51DCD87E9007185A9 /* Info.plist */,
-				C05463391E0BEA130063ABD7 /* QrCodeViewController.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -167,6 +166,7 @@
 		C007C7601DD1DE27006A285C /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				C05463391E0BEA130063ABD7 /* QrCodeViewController.swift */,
 				C007C75E1DD1DE22006A285C /* MainViewController.swift */,
 				C007C7611DD1DE63006A285C /* ListTableViewCell.swift */,
 				C09B4D5D1DF2BBFB00F7D08D /* LoginViewController.swift */,
