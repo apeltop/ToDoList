@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class AddViewController: UIViewController {
     let timeSelector: Selector = #selector(AddViewController.updateTime)
     
@@ -61,6 +62,9 @@ class AddViewController: UIViewController {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd(EEE) HH:mm"
         current_time.text = "현재 시간: " + formatter.stringFromDate(date)
+        
+        formatter.dateFormat = "yyyyMMddHHmm"
+        listDeadLinesForBackGround.append(formatter.stringFromDate(date))
         
         formatter.dateFormat = "yyyy:MM:dd:HH:mm"
         CurrentTime = formatter.stringFromDate(date)

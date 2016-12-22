@@ -11,6 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
     
+    var NowTime = ""
     var window: UIWindow?
     
     
@@ -40,9 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         let now=NSDate()
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd(EEE)"
+        dateFormatter.dateFormat = "yyyyMMddHHmm"
         dateFormatter.locale = NSLocale(localeIdentifier: "ko_KR")
-        dateFormatter.stringFromDate(now)
+        NowTime = dateFormatter.stringFromDate(now)
+        
         //selecttime
         func DTPicker(sender:UIDatePicker)
         {
@@ -51,15 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             formatter.dateFormat="yyyy-MM-dd(EEE)"
         }
         
-        
-        
-        
-        
-        
         let app = UIApplication.sharedApplication()
         let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert], categories: nil)
         app.registerUserNotificationSettings(notificationSettings)
-        let alertTime = NSDate().dateByAddingTimeInterval(15)
+        let alertTime = NSDate().dateByAddingTimeInterval(10)
         let notifyAlarm = UILocalNotification()
         
       //  notifyAlarm.repeatInterval = NSCalendarUnit.Second
@@ -68,7 +65,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         notifyAlarm.fireDate = alertTime
         notifyAlarm.timeZone = NSTimeZone.defaultTimeZone()
         notifyAlarm.alertBody = "alert"
-        app.scheduleLocalNotification(notifyAlarm)
+        for item in listDeadLinesForBackGround{
+            if(NowTime <= item){
+                app.scheduleLocalNotification(notifyAlarm)
+            }
+        }
     }
     
     func applicationWillEnterForeground(application: UIApplication) {

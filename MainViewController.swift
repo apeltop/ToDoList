@@ -11,7 +11,7 @@ import UIKit
 var listTitles = ["나르샤캠프 iOS반 숙제", "나르샤캠프 iOS반 어플 마무리짓기"]
 var listContents = ["이번달 안에 12월에 할 발표 PPT만들기", "나르샤 캠프 12월 초까지 프로젝트 끝내기"]
 var listDeadLines = ["2016-10-22(Sun) 12:00까지", "2016-12-31(Fri) 09:00까지"]
-var list
+var listDeadLinesForBackGround = ["201610221200", "201612310900"]
 
 class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource{
     
@@ -57,12 +57,39 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         }
     }
     
+    func Alert(){
+        let Now = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyyMMddHHmm"
+        let NTime = formatter.stringFromDate(Now)
+        print(NTime)
+        
+        let app = UIApplication.sharedApplication()
+        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert], categories: nil)
+        app.registerUserNotificationSettings(notificationSettings)
+        let alertTime = NSDate().dateByAddingTimeInterval(0)
+        let notifyAlarm = UILocalNotification()
+        
+        notifyAlarm.fireDate = alertTime
+        notifyAlarm.timeZone = NSTimeZone.defaultTimeZone()
+        notifyAlarm.alertBody = "Alert"
+        
+        for item in listDeadLinesForBackGround{
+            if (NTime >= item){
+                app.scheduleLocalNotification(notifyAlarm)
+                print(item)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mainTableView.dataSource = self
         mainTableView.delegate = self
         self.navigationController?.navigationBar.hidden = false
         self.navigationItem.hidesBackButton = true
+        
+        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(MainViewController.Alert), userInfo: nil, repeats: true)
     }
     
     override func didReceiveMemoryWarning() {
