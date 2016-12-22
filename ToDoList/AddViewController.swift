@@ -17,6 +17,7 @@ class AddViewController: UIViewController {
     
     var SelectionTime = ""
     var CurrentTime  = ""
+    var Result = 0
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -53,6 +54,12 @@ class AddViewController: UIViewController {
     
     @IBAction func DTPicker(sender: UIDatePicker) {
         let datePickerView = sender
+        
+        let nowDate = NSDate()
+        let curDate = datePickerView.date
+        
+        Result = Int(curDate.timeIntervalSinceDate(nowDate))
+        print(Result)
         
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd(EEE) HH:mm"
@@ -106,7 +113,7 @@ class AddViewController: UIViewController {
         {
             let TitleTempAlert = UIAlertController(title: "Warring", message: "내용을 입력하세요.", preferredStyle: UIAlertControllerStyle.Alert)
             let TitleTempAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.Default, handler: nil)
-            TitleTempAlert.addAction(TitleTempAction)ㅋ
+            TitleTempAlert.addAction(TitleTempAction)
             presentViewController(TitleTempAlert, animated: true, completion: nil)
         }
             
@@ -129,6 +136,9 @@ class AddViewController: UIViewController {
             listTitles.append(Title_text.text!)
             listContents.append(to_do.text!)
             listDeadLines.append(Selection_time.text! + "까지")
+            
+            let NowDate = NSDate()
+            let PriorTime = NSDate()
             
             KOSessionTask.storyPostNoteTaskWithContent("저는 \(Selection_time.text!)까지 \(Title_text.text!)을(를) 할 것임을 약속합니다.", permission: KOStoryPostPermission.OnlyMe, sharable: false, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
             

@@ -64,7 +64,6 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyyMMddHHmm"
         let NTime = formatter.stringFromDate(Now)
-        print(NTime)
         
         let app = UIApplication.sharedApplication()
         let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert], categories: nil)
@@ -79,7 +78,6 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         for item in listDeadLinesForBackGround{
             if (NTime >= item){
                 app.scheduleLocalNotification(notifyAlarm)
-                print(item)
             }
         }
     }
