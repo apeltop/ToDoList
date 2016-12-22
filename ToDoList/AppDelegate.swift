@@ -14,6 +14,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     var NowTime = ""
     var window: UIWindow?
     
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        if(KOSession.isKakaoAccountLoginCallback(url)){
+            return KOSession.handleOpenURL(url)
+        }
+        return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        if(KOSession.isKakaoAccountLoginCallback(url)){
+            return KOSession.handleOpenURL(url)
+        }
+        return true
+    }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -78,6 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        KOSession.handleDidBecomeActive()
     }
     
     func applicationWillTerminate(application: UIApplication) {

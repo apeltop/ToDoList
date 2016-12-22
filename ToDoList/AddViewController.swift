@@ -18,6 +18,8 @@ class AddViewController: UIViewController {
     var SelectionTime = ""
     var CurrentTime  = ""
     
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     @IBOutlet weak var AddDoneButton: UIBarButtonItem!
     @IBOutlet weak var current_time: UILabel!
     @IBOutlet weak var Selection_time: UILabel!
@@ -34,6 +36,10 @@ class AddViewController: UIViewController {
         NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: timeSelector, userInfo: nil, repeats: true)
         
         view.addGestureRecognizer(tap)
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd(EEE) HH:mm"
+        Selection_time.text = formatter.stringFromDate(datePicker.date)
     }
     
     func hideKeyboard(){
@@ -123,6 +129,8 @@ class AddViewController: UIViewController {
             listTitles.append(Title_text.text!)
             listContents.append(to_do.text!)
             listDeadLines.append(Selection_time.text! + "까지")
+            
+            KOSessionTask.storyPostNoteTaskWithContent("저는 \(Selection_time.text!)까지 \(Title_text.text!)을(를) 할 것임을 약속합니다.", permission: KOStoryPostPermission.OnlyMe, sharable: false, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
             
             Title_text.text = ""
             to_do.text = ""
