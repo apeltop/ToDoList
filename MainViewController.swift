@@ -8,10 +8,10 @@
 
 import UIKit
 
-var listTitles = ["나르샤캠프 iOS반 숙제", "나르샤캠프 iOS반 어플 마무리짓기"]
-var listContents = ["이번달 안에 12월에 할 발표 PPT만들기", "나르샤 캠프 12월 초까지 프로젝트 끝내기"]
-var listDeadLines = ["2016-10-22(Sun) 12:00까지", "2016-12-31(Fri) 09:00까지"]
-var listDeadLinesForBackGround = ["201610221200", "201612310900"]
+var listTitles = ["나르샤캠프 iOS반 어플 마무리짓기"]
+var listContents = ["나르샤 캠프 12월 초까지 프로젝트 끝내기"]
+var listDeadLines = ["2016-12-31(Fri) 09:00까지"]
+var listDeadLinesForBackGround = ["201612310900"]
 
 class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource{
     
@@ -49,6 +49,8 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     }
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
+            KOSessionTask.storyPostNoteTaskWithContent("저는 \(listDeadLines[indexPath.row])까지 할 일이였던 \(listTitles[indexPath.row])을(를) 취소하였습니다.", permission: KOStoryPostPermission.OnlyMe, sharable: false, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
+            
             listTitles.removeAtIndex(indexPath.row)
             listContents.removeAtIndex(indexPath.row)
             listDeadLines.removeAtIndex(indexPath.row)

@@ -21,10 +21,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R50-dI-l5c">
-                                <rect key="frame" x="168" y="318" width="38" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R50-dI-l5c">
+                                <rect key="frame" x="21" y="516" width="332" height="131"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login"/>
+                                <state key="normal" title="Login" image="LoginWithKakao.png"/>
                                 <connections>
                                     <action selector="kakao:" destination="uh9-xW-fNa" eventType="touchUpInside" id="Lh6-Q1-5Bf"/>
                                 </connections>
@@ -100,7 +100,7 @@
                         <barButtonItem key="leftBarButtonItem" image="setting.png" id="Wrx-bF-Ngn">
                             <inset key="imageInsets" minX="6" minY="6" maxX="6" maxY="6"/>
                             <connections>
-                                <segue destination="xMA-vE-yKm" kind="push" id="EJh-Kn-0Hk"/>
+                                <segue destination="qsr-zw-tPb" kind="push" id="wSH-Qp-LP6"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dgo-Hi-Klv">
@@ -212,6 +212,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Do-4A-OH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4672.8000000000002" y="-373.76311844077964"/>
+        </scene>
+        <!--Qr Code View Controller-->
+        <scene sceneID="OOc-O0-f5S">
+            <objects>
+                <viewController id="qsr-zw-tPb" customClass="QrCodeViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dKE-89-PV4"/>
+                        <viewControllerLayoutGuide type="bottom" id="BFY-Sj-ZDn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SIb-x0-XIK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PfJ-0H-K37">
+                                <rect key="frame" x="87" y="233" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RNo-6n-aev"/>
+                    <connections>
+                        <outlet property="qrImage" destination="PfJ-0H-K37" id="uwI-Tf-M33"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vpf-Sa-Ak4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3573.5999999999999" y="735.38230884557731"/>
         </scene>
         <!--Fix Plan-->
         <scene sceneID="qbu-7w-Onj">
@@ -467,7 +495,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TE1-Ht-4lM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2636" y="744"/>
+            <point key="canvasLocation" x="2636" y="883"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WpM-Fb-9SQ">
@@ -489,6 +517,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LoginWithKakao.png" width="500" height="200"/>
         <image name="setting.png" width="37" height="37"/>
     </resources>
 </document>
