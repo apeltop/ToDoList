@@ -37,10 +37,6 @@ class AddViewController: UIViewController {
         NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: timeSelector, userInfo: nil, repeats: true)
         
         view.addGestureRecognizer(tap)
-        
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd(EEE) HH:mm"
-        Selection_time.text = formatter.stringFromDate(datePicker.date)
     }
     
     func hideKeyboard(){
@@ -59,14 +55,13 @@ class AddViewController: UIViewController {
         let curDate = datePickerView.date
         
         Result = Int(curDate.timeIntervalSinceDate(nowDate))
-        print(Result)
         
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd(EEE) HH:mm"
         Selection_time.text = formatter.stringFromDate(datePickerView.date)
         
-        formatter.dateFormat = "yyyy:MM:dd:HH:mm"
-        SelectionTime = formatter.stringFromDate(datePickerView.date)
+        formatter.dateFormat = "yyyyMMddHHmm"
+        listDeadLinesForBackGround.append(formatter.stringFromDate(datePickerView.date))
     }
     
     func updateTime(){
@@ -75,70 +70,42 @@ class AddViewController: UIViewController {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd(EEE) HH:mm"
         current_time.text = "현재 시간: " + formatter.stringFromDate(date)
-        
-        formatter.dateFormat = "yyyyMMddHHmm"
-        listDeadLinesForBackGround.append(formatter.stringFromDate(date))
-        
-        formatter.dateFormat = "yyyy:MM:dd:HH:mm"
-        CurrentTime = formatter.stringFromDate(date)
+    }
+    
+    func warringAlert (alertTitle: String, alertMessage: String, actionTitle: String) {
+        let TitleTempAlert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        let TitleTempAction = UIAlertAction(title: actionTitle, style: UIAlertActionStyle.Default, handler: nil)
+        TitleTempAlert.addAction(TitleTempAction)
+        presentViewController(TitleTempAlert, animated: true, completion: nil)
     }
     
     @IBAction func AddDoe(sender: UIButton) {
         
-        let SelTime = SelectionTime.characters.split { $0 == ":" } .map { (x) -> Int in return Int(String(x))! }
-        
-        let SYear = SelTime[0]
-        let SMonth = SelTime[1]
-        let SDay = SelTime[2]
-        let SHours = SelTime[3]
-        let SMinutes = SelTime[4]
-        
-        let CurTime = CurrentTime.characters.split { $0 == ":" } .map { (x) -> Int in return Int(String(x))! }
-        
-        let CYear = CurTime[0]
-        let CMonth = CurTime[1]
-        let CDay = CurTime[2]
-        let CHours = CurTime[3]
-        let CMinutes = CurTime[4]
-        
         if(Title_text.text == "")
         {
-            let TitleTempAlert = UIAlertController(title: "Warring", message: "제목을 입력하세요.", preferredStyle: UIAlertControllerStyle.Alert)
-            let TitleTempAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.Default, handler: nil)
-            TitleTempAlert.addAction(TitleTempAction)
-            presentViewController(TitleTempAlert, animated: true, completion: nil)
+            warringAlert("Warring", alertMessage: "제목을 입력하세요.", actionTitle: "확인")
         }
             
         else if(to_do.text == "")
         {
-            let TitleTempAlert = UIAlertController(title: "Warring", message: "내용을 입력하세요.", preferredStyle: UIAlertControllerStyle.Alert)
-            let TitleTempAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.Default, handler: nil)
-            TitleTempAlert.addAction(TitleTempAction)
-            presentViewController(TitleTempAlert, animated: true, completion: nil)
+            warringAlert("Warring", alertMessage: "내용을 입력하세요.", actionTitle: "확인")
+            print(SelectionTime)
         }
             
         else if(Selection_time.text == "")
         {
-            let TitleTempAlert = UIAlertController(title: "Warring", message: "시간을 선택 하세요.", preferredStyle: UIAlertControllerStyle.Alert)
-            let TitleTempAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.Default, handler: nil)
-            TitleTempAlert.addAction(TitleTempAction)
-            presentViewController(TitleTempAlert, animated: true, completion: nil)
-        }
-            
-        else if( SYear<=CYear && SMonth<=CMonth && SDay<=CDay && SHours<=CHours && SMinutes<=CMinutes){
-            let TitleTempAlert = UIAlertController(title: "Warring", message: "시간이 맞지 않습니다", preferredStyle: UIAlertControllerStyle.Alert)
-            let TitleTempAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.Default, handler: nil)
-            TitleTempAlert.addAction(TitleTempAction)
-            presentViewController(TitleTempAlert, animated: true, completion: nil)
+            warringAlert("Warring", alertMessage: "시간을 선택 하세요.", actionTitle: "확인")
         }
             
         else{
+            print(Result)
+            if(Result <= 0){
+                warringAlert("Warring", alertMessage: "시간이 맞지 않습니다.", actionTitle: "확인")
+            }
+            
             listTitles.append(Title_text.text!)
             listContents.append(to_do.text!)
             listDeadLines.append(Selection_time.text! + "까지")
-            
-            let NowDate = NSDate()
-            let PriorTime = NSDate()
             
             KOSessionTask.storyPostNoteTaskWithContent("저는 \(Selection_time.text!)까지 \(Title_text.text!)을(를) 할 것임을 약속합니다.", permission: KOStoryPostPermission.OnlyMe, sharable: false, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
             
