@@ -55,6 +55,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             listTitles.removeAtIndex(indexPath.row)
             listContents.removeAtIndex(indexPath.row)
             listDeadLines.removeAtIndex(indexPath.row)
+            listImage.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             
         }
