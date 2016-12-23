@@ -97,8 +97,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="To-Do-list" id="DyI-xL-eWn">
-                        <barButtonItem key="leftBarButtonItem" image="setting.png" id="Wrx-bF-Ngn">
-                            <inset key="imageInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                        <barButtonItem key="leftBarButtonItem" image="qrcode.png" id="Wrx-bF-Ngn">
                             <connections>
                                 <segue destination="qsr-zw-tPb" kind="push" id="wSH-Qp-LP6"/>
                             </connections>
@@ -286,10 +285,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSj-Ov-cpQ">
+                                <rect key="frame" x="164" y="332" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="aCt-MU-hIi" kind="push" id="xrh-GV-9Wf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <toolbarItems/>
+                    <toolbarItems>
+                        <barButtonItem title="검사" id="wnV-bJ-FKr">
+                            <connections>
+                                <segue destination="aCt-MU-hIi" kind="push" id="nvX-Mn-pwe"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Fix Plan" id="cB3-Cy-61X">
                         <barButtonItem key="rightBarButtonItem" title="완료" id="hPB-Nm-QUS">
                             <connections>
@@ -309,6 +322,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lct-aO-jx0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4672.8000000000002" y="313.49325337331339"/>
+        </scene>
+        <!--Code Reader View Controller-->
+        <scene sceneID="QwR-5f-wPt">
+            <objects>
+                <viewController id="aCt-MU-hIi" customClass="QRCodeReaderViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vlq-CW-g2f"/>
+                        <viewControllerLayoutGuide type="bottom" id="3xg-E4-XsX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GX4-Sb-kZa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9n7-ZE-sF1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R3i-Kf-C0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5575" y="313"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="POm-s1-Nka">
@@ -518,6 +550,9 @@
     </scenes>
     <resources>
         <image name="LoginWithKakao.png" width="500" height="200"/>
-        <image name="setting.png" width="37" height="37"/>
+        <image name="qrcode.png" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="nvX-Mn-pwe"/>
+    </inferredMetricsTieBreakers>
 </document>
