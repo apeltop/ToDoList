@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import MobileCoreServices
 
-class DetailViewController: UIViewController,UITextFieldDelegate {
+class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     var cur = 0
     var receiveMainTitle = ""
     var receiveDetailContent = ""
     var receiveDeadLine = ""
+    
+    let imagePicker: UIImagePickerController! = UIImagePickerController()
+    var flagImageSave = false
+    var captureImage: UIImage!
     
     @IBOutlet weak var MainTitleField: UITextField!
     @IBOutlet weak var DetailContentField: UITextField!
@@ -34,6 +39,42 @@ class DetailViewController: UIViewController,UITextFieldDelegate {
         view.addGestureRecognizer(tap)
         MainTitleField.delegate = self
         DetailContentField.delegate = self
+    }
+    
+    func myAlert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func btnLoadImageFromLibrary(sender: UIButton) {
+        if(UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary)){
+            flagImageSave = false
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .PhotoLibrary
+            
+            imagePicker.mediaTypes = [kUTTypeImage as String]
+            imagePicker.allowsEditing = true
+            presentViewController(imagePicker, animated: true, completion: nil)
+        }
+            
+        else{
+            myAlert("Photo album inaccessable", message: "Application cannot access the photo album.")
+        }
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let mediaType = info[UIImagePickerControllerMediaType] as! NSString
+        
+        if mediaType.isEqualToString(kUTTypeImage as NSString as String){
+            captureImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            if flagImageSave{
+                UIImageWriteToSavedPhotosAlbum(captureImage, self, nil, nil)
+            }
+            
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

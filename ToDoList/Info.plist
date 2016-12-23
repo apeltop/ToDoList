@@ -2,16 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>kakaob10a4d435dc4111c302f9678bb2d6ee1</string>
-		<string>kakaokompassauth</string>
-		<string>storykompassauth</string>
-		<string>kakaolink</string>
-		<string>kakaotalk-4.5.0</string>
-		<string>kakaostory-2.9.0</string>
-		<string>storylink</string>
-	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Image Libery</string>
 	<key>NSCameraUsageDescription</key>
 	<string>QR코드의 인식을 위해서 필요합니다.(필수)</string>
 	<key>CFBundleDevelopmentRegion</key>

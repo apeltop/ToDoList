@@ -270,6 +270,9 @@
                                 <rect key="frame" x="24" y="375" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="추가"/>
+                                <connections>
+                                    <action selector="btnLoadImageFromLibrary:" destination="X0P-pE-MFO" eventType="touchUpInside" id="UQF-7w-qPT"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="제목" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HBt-uG-cwB">
                                 <rect key="frame" x="16" y="89" width="343" height="30"/>
