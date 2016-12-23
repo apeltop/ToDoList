@@ -19,6 +19,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
     var flagImageSave = false
     var captureImage: UIImage!
     
+    @IBOutlet weak var chooseImage: UIImageView!
     @IBOutlet weak var MainTitleField: UITextField!
     @IBOutlet weak var DetailContentField: UITextField!
     @IBOutlet weak var DeadLineLabel: UILabel!
@@ -70,11 +71,16 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
         
         if mediaType.isEqualToString(kUTTypeImage as NSString as String){
             captureImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            
             if flagImageSave{
                 UIImageWriteToSavedPhotosAlbum(captureImage, self, nil, nil)
             }
-            
+            chooseImage.image = captureImage
         }
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

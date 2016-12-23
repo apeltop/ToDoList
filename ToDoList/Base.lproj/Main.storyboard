@@ -296,6 +296,10 @@
                                     <segue destination="aCt-MU-hIi" kind="push" id="xrh-GV-9Wf"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iFD-bq-zpk">
+                                <rect key="frame" x="24" y="413" width="103" height="189"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -320,6 +324,7 @@
                         <outlet property="DetailContentField" destination="Nm4-Sl-5Ln" id="580-qT-anE"/>
                         <outlet property="DoneButton" destination="hPB-Nm-QUS" id="Gt9-ZT-WQo"/>
                         <outlet property="MainTitleField" destination="HBt-uG-cwB" id="iLw-SU-wp7"/>
+                        <outlet property="chooseImage" destination="iFD-bq-zpk" id="fFJ-Ml-izP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lct-aO-jx0" userLabel="First Responder" sceneMemberID="firstResponder"/>
