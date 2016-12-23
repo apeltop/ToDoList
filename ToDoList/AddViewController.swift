@@ -106,6 +106,7 @@ class AddViewController: UIViewController {
             listTitles.append(Title_text.text!)
             listContents.append(to_do.text!)
             listDeadLines.append(Selection_time.text! + "까지")
+            listImage.append(UIImage(named: "listImageTempPlace.png")!)
             
             KOSessionTask.storyPostNoteTaskWithContent("저는 \(Selection_time.text!)까지 \(Title_text.text!)을(를) 할 것임을 약속합니다.", permission: KOStoryPostPermission.OnlyMe, sharable: false, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
             

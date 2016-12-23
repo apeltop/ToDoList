@@ -9,6 +9,7 @@
 import UIKit
 import MobileCoreServices
 
+var captureImage: UIImage!
 class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     var cur = 0
     var receiveMainTitle = ""
@@ -17,7 +18,6 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
     
     let imagePicker: UIImagePickerController! = UIImagePickerController()
     var flagImageSave = false
-    var captureImage: UIImage!
     
     @IBOutlet weak var chooseImage: UIImageView!
     @IBOutlet weak var MainTitleField: UITextField!
@@ -40,6 +40,11 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
         view.addGestureRecognizer(tap)
         MainTitleField.delegate = self
         DetailContentField.delegate = self
+        
+        MainTitleField.text = listTitles[cur]
+        DetailContentField.text = listContents[cur]
+        DeadLineLabel.text = listDeadLines[cur]
+        chooseImage.image = listImage[cur]
     }
     
     func myAlert(title: String, message: String){
@@ -63,7 +68,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
             
         else{
             myAlert("Photo album inaccessable", message: "Application cannot access the photo album.")
-        } 
+        }
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -94,38 +99,12 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    /////////////////
-    func receiveMainTitle(itemTitle: String)
-    {
-        receiveMainTitle = itemTitle
-    }
-    
-    func receiveDetailContent(itemContent: String)
-    {
-        receiveDetailContent = itemContent
-    }
-    
-    func receiveDeadLine(itemDeadLine: String)
-    {
-        receiveDeadLine = "제출 기한: " + itemDeadLine
-    }
     
     @IBAction func FixDone(sender: UIBarButtonItem) {
         listTitles[cur] = MainTitleField.text!
         listContents[cur] = DetailContentField.text!
+        listImage[cur] = captureImage
         self.navigationController?.popViewControllerAnimated(true)
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    
-    
 }
+ 

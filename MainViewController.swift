@@ -12,6 +12,7 @@ var listTitles = ["나르샤캠프 iOS반 어플 마무리짓기"]
 var listContents = ["나르샤 캠프 12월 초까지 프로젝트 끝내기"]
 var listDeadLines = ["2016-12-31(Fri) 09:00까지"]
 var listDeadLinesForBackGround = ["201612310900"]
+var listImage = Array<UIImage>()
 
 class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource{
     
@@ -84,6 +85,8 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        listImage.append(UIImage(named: "listImageTempPlace.png")!)
+        
         mainTableView.dataSource = self
         mainTableView.delegate = self
         self.navigationController?.navigationBar.hidden = false
@@ -113,10 +116,6 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             let indexPath = self.mainTableView.indexPathForCell(cell)
             let detailView = segue.destinationViewController as!
             DetailViewController
-            
-            detailView.receiveMainTitle(listTitles[(indexPath?.row)!])
-            detailView.receiveDetailContent(listContents[(indexPath?.row)!])
-            detailView.receiveDeadLine(listDeadLines[(indexPath?.row)!])
             
             detailView.cur = indexPath!.row
         }
