@@ -63,7 +63,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
             
         else{
             myAlert("Photo album inaccessable", message: "Application cannot access the photo album.")
-        }
+        } 
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -72,11 +72,9 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
         if mediaType.isEqualToString(kUTTypeImage as NSString as String){
             captureImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             
-            if flagImageSave{
-                UIImageWriteToSavedPhotosAlbum(captureImage, self, nil, nil)
-            }
             chooseImage.image = captureImage
         }
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
