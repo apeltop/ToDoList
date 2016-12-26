@@ -52,6 +52,8 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         if editingStyle == UITableViewCellEditingStyle.Delete {
             KOSessionTask.storyPostNoteTaskWithContent("저는 \(listDeadLines[indexPath.row])까지 할 일이였던 \(listTitles[indexPath.row])을(를) 취소하였습니다.", permission: KOStoryPostPermission.OnlyMe, sharable: false, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
             
+            deleteNotification()
+            
             listTitles.removeAtIndex(indexPath.row)
             listContents.removeAtIndex(indexPath.row)
             listDeadLines.removeAtIndex(indexPath.row)
@@ -61,28 +63,44 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         }
     }
     
-    func Alert(){
-        let Now = NSDate()
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyyMMddHHmm"
-        let NTime = formatter.stringFromDate(Now)
+    func deleteNotification() {
+        let app:UIApplication = UIApplication.sharedApplication()
         
-        let app = UIApplication.sharedApplication()
-        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert], categories: nil)
-        app.registerUserNotificationSettings(notificationSettings)
-        let alertTime = NSDate().dateByAddingTimeInterval(0)
-        let notifyAlarm = UILocalNotification()
-        
-        notifyAlarm.fireDate = alertTime
-        notifyAlarm.timeZone = NSTimeZone.defaultTimeZone()
-        notifyAlarm.alertBody = "Alert"
-        
-        for item in listDeadLinesForBackGround{
-            if (NTime >= item){
-                app.scheduleLocalNotification(notifyAlarm)
+        for oneEvent in app.scheduledLocalNotifications! {
+            let notification = oneEvent as UILocalNotification
+            let userInfoCurrent = notification.userInfo! as! [String:AnyObject]
+            let uid = userInfoCurrent["UUID"]! as! String
+            if uid == "\(listTitles)\(listDeadLines)" {
+                //Cancelling local notification
+                app.cancelLocalNotification(notification)
+                break;
             }
         }
     }
+
+    
+//    func Alert(){
+//        let Now = NSDate()
+//        let formatter = NSDateFormatter()
+//        formatter.dateFormat = "yyyyMMddHHmm"
+//        let NTime = formatter.stringFromDate(Now)
+//        
+//        let app = UIApplication.sharedApplication()
+//        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert], categories: nil)
+//        app.registerUserNotificationSettings(notificationSettings)
+//        let alertTime = NSDate().dateByAddingTimeInterval(0)
+//        let notifyAlarm = UILocalNotification()
+//        
+//        notifyAlarm.fireDate = alertTime
+//        notifyAlarm.timeZone = NSTimeZone.defaultTimeZone()
+//        notifyAlarm.alertBody = "Alert"
+//        
+//        for item in listDeadLinesForBackGround{
+//            if (NTime >= item){
+//                app.scheduleLocalNotification(notifyAlarm)
+//            }
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +111,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         self.navigationController?.navigationBar.hidden = false
         self.navigationItem.hidesBackButton = true
         
-        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(MainViewController.Alert), userInfo: nil, repeats: true)
+//        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(MainViewController.Alert), userInfo: nil, repeats: true)
     }
     
     override func didReceiveMemoryWarning() {

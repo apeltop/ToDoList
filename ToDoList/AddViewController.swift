@@ -29,6 +29,24 @@ class AddViewController: UIViewController {
     @IBOutlet weak var to_do: UITextField!
     @IBOutlet weak var Selection_Label: UILabel!
     
+    func addNotification() {
+        NSLog("addNoti called")
+        
+        // 1st notification
+        let notification = UILocalNotification()
+        notification.alertBody = "\(Title_text.text!)가 완료되었습니다."
+        notification.alertAction = "open"
+        notification.timeZone = NSTimeZone.systemTimeZone()
+        notification.soundName = UILocalNotificationDefaultSoundName
+        notification.fireDate = datePicker.date
+        notification.userInfo = ["UUID": "\(Title_text.text!)\(Selection_time.text!)"]
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        
+        // debug
+        print(UIApplication.sharedApplication().scheduledLocalNotifications)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -109,6 +127,8 @@ class AddViewController: UIViewController {
             listImage.append(UIImage(named: "listImageTempPlace.png")!)
             
             KOSessionTask.storyPostNoteTaskWithContent("저는 \(Selection_time.text!)까지 \(Title_text.text!)을(를) 할 것임을 약속합니다.", permission: KOStoryPostPermission.OnlyMe, sharable: false, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
+            
+            addNotification()
             
             Title_text.text = ""
             to_do.text = ""
