@@ -15,6 +15,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
     var receiveMainTitle = ""
     var receiveDetailContent = ""
     var receiveDeadLine = ""
+    var receivedContants = ""
     
     let imagePicker: UIImagePickerController! = UIImagePickerController()
     var flagImageSave = false
@@ -106,5 +107,9 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
         listImage[cur] = captureImage
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    func receiveContents(contents:String){
+        receivedContants = contents
+    }
 }
- 
+

@@ -11,7 +11,6 @@ import AVFoundation
 
 class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
-    @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet var vw: UIView!
     
     var objCaptureSession:AVCaptureSession?
@@ -28,14 +27,17 @@ class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjec
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-
+        
+    }
+    
+    func KOPosting(contents: String){
+        KOSessionTask.storyPostTaskWithContent("\(contents)에게서 완료하였습니다!", permission: KOStoryPostPermission.OnlyMe, imageUrl: nil, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
     }
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!)
     {
         if metadataObjects == nil || metadataObjects.count == 0 {
             vwQRCodeReader?.frame = CGRectZero
-            resultLabel.text = "No QRCode text detacted"
             
             return
         }
@@ -47,8 +49,33 @@ class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjec
             vwQRCodeReader?.frame = objBarCode!.bounds
             
             if objMetadataMachineReadableCodeObject.stringValue != nil {
-                resultLabel.text = objMetadataMachineReadableCodeObject.stringValue
                 print(objMetadataMachineReadableCodeObject.stringValue)
+                let alert: UIAlertController = UIAlertController(title: "발견", message: "\(objMetadataMachineReadableCodeObject.stringValue)님이 검사 맡을 사람이 맞는가요?", preferredStyle: .Alert)
+                let okAction: UIAlertAction = UIAlertAction(title: "네", style: .Default, handler: {(alert:UIAlertAction!) -> Void in
+                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyBoard.instantiateViewControllerWithIdentifier("Detail") as! DetailViewController
+                    
+                    vc.receivedContants = objMetadataMachineReadableCodeObject.stringValue
+                    
+                    
+                    let main:UIAlertController = UIAlertController(title: "확인", message: "\(vc.receivedContants)님에게 검사를 성공적으로 받았습니다.", preferredStyle: .Alert)
+                    let action:UIAlertAction = UIAlertAction(title: "예", style: .Default, handler: {(alert:UIAlertAction!) -> Void in
+                        
+                        self.KOPosting(objMetadataMachineReadableCodeObject.stringValue)
+                        self.navigationController?.popViewControllerAnimated(true)
+                    })
+                    
+                    main.addAction(action)
+                    self.presentViewController(main, animated: true, completion: nil)
+                    
+                })
+                let noAction: UIAlertAction = UIAlertAction(title: "아니요", style: .Default, handler: {(alert:UIAlertAction!) -> Void in
+                    self.objCaptureSession?.startRunning()
+                })
+                alert.addAction(okAction)
+                alert.addAction(noAction)
+                self.presentViewController(alert, animated: true, completion: nil)
+                objCaptureSession?.stopRunning()
             }
         }
     }
@@ -59,7 +86,7 @@ class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjec
         let objCaptureDeviceInput:AnyObject!
         
         do{
-           objCaptureDeviceInput = try AVCaptureDeviceInput(device: objCaptureDevice) as AVCaptureDeviceInput
+            objCaptureDeviceInput = try AVCaptureDeviceInput(device: objCaptureDevice) as AVCaptureDeviceInput
         } catch let error1 as NSError{
             error = error1
             objCaptureDeviceInput = nil
