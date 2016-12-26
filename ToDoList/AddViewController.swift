@@ -39,7 +39,7 @@ class AddViewController: UIViewController {
         notification.timeZone = NSTimeZone.systemTimeZone()
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.fireDate = datePicker.date
-        notification.userInfo = ["UUID": "\(Title_text.text!)\(Selection_time.text!)"]
+        notification.userInfo = ["UUID": "\(Title_text.text!)\(Selection_time.text!)", "Title": Title_text.text!, "SelectTime": Selection_time.text!, "Row": listTitles.count]
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
         

@@ -36,6 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        KOSessionTask.storyPostTaskWithContent("\(notification.userInfo!["Title"]!)를 \(notification.userInfo!["SelectTime"]!)까지 미완료하였습니다.", permission: .OnlyMe, imageUrl: nil, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
+    }
+    
 //    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
 ////        let date = NSDate()
 ////        let formatter = NSDateFormatter()

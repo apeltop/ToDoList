@@ -52,7 +52,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         if editingStyle == UITableViewCellEditingStyle.Delete {
             KOSessionTask.storyPostNoteTaskWithContent("저는 \(listDeadLines[indexPath.row])까지 할 일이였던 \(listTitles[indexPath.row])을(를) 취소하였습니다.", permission: KOStoryPostPermission.OnlyMe, sharable: false, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
             
-            deleteNotification()
+            deleteNotification(indexPath.row)
             
             listTitles.removeAtIndex(indexPath.row)
             listContents.removeAtIndex(indexPath.row)
@@ -64,14 +64,14 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         }
     }
     
-    func deleteNotification() {
+    func deleteNotification(row:Int) {
         let app:UIApplication = UIApplication.sharedApplication()
         
         for oneEvent in app.scheduledLocalNotifications! {
             let notification = oneEvent as UILocalNotification
             let userInfoCurrent = notification.userInfo! as! [String:AnyObject]
             let uid = userInfoCurrent["UUID"]! as! String
-            if uid == "\(listTitles)\(listDeadLines)" {
+            if uid == "\(listTitles[row])\(listDeadLines[row])" {
                 //Cancelling local notification
                 app.cancelLocalNotification(notification)
                 break;
