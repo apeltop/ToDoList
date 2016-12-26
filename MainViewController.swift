@@ -12,6 +12,7 @@ var listTitles = ["나르샤캠프 iOS반 어플 마무리짓기"]
 var listContents = ["나르샤 캠프 12월 초까지 프로젝트 끝내기"]
 var listDeadLines = ["2016-12-31(Fri) 09:00까지"]
 var listDeadLinesForBackGround = ["201612310900"]
+var listCheck = [false]
 var listImage = Array<UIImage>()
 
 class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource{
@@ -20,12 +21,6 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     let noDataLabel = UILabel()
     
-    @IBAction func Search(sender: AnyObject) {
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.searchBar.delegate = self
-        presentViewController(searchController, animated: true, completion: nil)
-    }
     @IBOutlet weak var mainTableView: UITableView!
     
     
@@ -41,7 +36,12 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         let cell = tableView.dequeueReusableCellWithIdentifier("cell1",forIndexPath: indexPath) as! ListTableViewCell
         cell.listTitle.text = listTitles[indexPath.row]
         cell.listDeadLine.text = listDeadLines[indexPath.row]
-        cell.listImageView = nil
+        if (listCheck[indexPath.row] == true){
+            cell.listCheck.text = "완료"
+        }
+        else{
+            cell.listCheck.text = "미완료"
+        }
         return cell
     }
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
@@ -58,6 +58,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             listContents.removeAtIndex(indexPath.row)
             listDeadLines.removeAtIndex(indexPath.row)
             listImage.removeAtIndex(indexPath.row)
+            listCheck.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             
         }

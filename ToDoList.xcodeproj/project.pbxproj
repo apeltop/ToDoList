@@ -26,6 +26,7 @@
 		C054635A1E0C9ED00063ABD7 /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05463591E0C9ED00063ABD7 /* QRCodeReaderViewController.swift */; };
 		C054635C1E0CA2E30063ABD7 /* qrcode.png in Resources */ = {isa = PBXBuildFile; fileRef = C054635B1E0CA2E30063ABD7 /* qrcode.png */; };
 		C05463671E0CBF170063ABD7 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = C05463661E0CBF170063ABD7 /* appicon.png */; };
+		C082243E1E10F20C00CF3151 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = C082243D1E10F20C00CF3151 /* launch.png */; };
 		C0960FE31DDF14C90016BDAF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0960FE21DDF14C90016BDAF /* DetailViewController.swift */; };
 		C09B4D5E1DF2BBFB00F7D08D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B4D5D1DF2BBFB00F7D08D /* LoginViewController.swift */; };
 		C0CDE67B1E0AAB7000688F52 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CDE6771E0AAB7000688F52 /* KakaoOpenSDK.framework */; };
@@ -75,6 +76,7 @@
 		C05463591E0C9ED00063ABD7 /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewController.swift; sourceTree = "<group>"; };
 		C054635B1E0CA2E30063ABD7 /* qrcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrcode.png; sourceTree = "<group>"; };
 		C05463661E0CBF170063ABD7 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
+		C082243D1E10F20C00CF3151 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		C0960FE21DDF14C90016BDAF /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C09B4D5D1DF2BBFB00F7D08D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C0CDE6771E0AAB7000688F52 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				C05463321E0BCFA30063ABD7 /* setting@3x.png */,
 				C05463661E0CBF170063ABD7 /* appicon.png */,
 				C054635B1E0CA2E30063ABD7 /* qrcode.png */,
+				C082243D1E10F20C00CF3151 /* launch.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				C05463381E0BD7CD0063ABD7 /* LoginWithKakao.png in Resources */,
 				C054635C1E0CA2E30063ABD7 /* qrcode.png in Resources */,
 				AE35E4C41DCD87E9007185A9 /* LaunchScreen.storyboard in Resources */,
+				C082243E1E10F20C00CF3151 /* launch.png in Resources */,
 				AE35E4C11DCD87E9007185A9 /* Assets.xcassets in Resources */,
 				C012BF621E0CF15B005109C2 /* listImageTempPlace.png in Resources */,
 				AE35E4BF1DCD87E9007185A9 /* Main.storyboard in Resources */,

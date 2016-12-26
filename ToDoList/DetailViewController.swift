@@ -79,6 +79,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
             captureImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             
             chooseImage.image = captureImage
+            listImage[cur] = captureImage
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -104,12 +105,12 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
     @IBAction func FixDone(sender: UIBarButtonItem) {
         listTitles[cur] = MainTitleField.text!
         listContents[cur] = DetailContentField.text!
-        listImage[cur] = captureImage
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    func receiveContents(contents:String){
-        receivedContants = contents
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let dest = segue.destinationViewController as! QRCodeReaderViewController
+        dest.cur = cur
     }
 }
 

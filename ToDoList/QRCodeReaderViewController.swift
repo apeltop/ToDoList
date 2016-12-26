@@ -13,6 +13,7 @@ class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjec
     
     @IBOutlet var vw: UIView!
     
+    var cur:Int!
     var objCaptureSession:AVCaptureSession?
     var objCaptureVideoPreviewLayer:AVCaptureVideoPreviewLayer?
     var vwQRCodeReader:UIView!
@@ -31,7 +32,21 @@ class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjec
     }
     
     func KOPosting(contents: String){
-        KOSessionTask.storyPostTaskWithContent("\(contents)에게서 완료하였습니다!", permission: KOStoryPostPermission.OnlyMe, imageUrl: nil, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
+        if (!(listImage[cur!].isEqual(UIImage(named: "listImageTempPlace.png")))) {
+            var images = [listImage[cur!]]
+            let url = KOSessionTask.storyMultiImagesUploadTaskWithImages(images, completionHandler: {(imageUrls:[String]!, error:NSError!) in
+                if((error == nil)){
+                    KOSessionTask.storyPostPhotoTaskWithImageUrls(imageUrls, content: "\(listTitles[self.cur!])를 \(contents)에게서 검사맡아 완료하였습니다!", permission: .OnlyMe, sharable: false, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
+                }
+                else {
+                    print(error)
+                }
+            })
+            
+        }
+        else {
+            KOSessionTask.storyPostTaskWithContent("\(listTitles[cur!])를 \(contents)에게서 검사맡아 완료하였습니다!", permission: KOStoryPostPermission.OnlyMe, imageUrl: nil, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
+        }
     }
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!)
@@ -51,12 +66,14 @@ class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjec
             if objMetadataMachineReadableCodeObject.stringValue != nil {
                 print(objMetadataMachineReadableCodeObject.stringValue)
                 let alert: UIAlertController = UIAlertController(title: "발견", message: "\(objMetadataMachineReadableCodeObject.stringValue)님이 검사 맡을 사람이 맞는가요?", preferredStyle: .Alert)
+                
                 let okAction: UIAlertAction = UIAlertAction(title: "네", style: .Default, handler: {(alert:UIAlertAction!) -> Void in
                     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                     let vc = storyBoard.instantiateViewControllerWithIdentifier("Detail") as! DetailViewController
                     
                     vc.receivedContants = objMetadataMachineReadableCodeObject.stringValue
                     
+                    listCheck[self.cur!] = true
                     
                     let main:UIAlertController = UIAlertController(title: "확인", message: "\(vc.receivedContants)님에게 검사를 성공적으로 받았습니다.", preferredStyle: .Alert)
                     let action:UIAlertAction = UIAlertAction(title: "예", style: .Default, handler: {(alert:UIAlertAction!) -> Void in

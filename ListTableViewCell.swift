@@ -12,8 +12,8 @@ class ListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var listTitle: UILabel!
     @IBOutlet weak var listDeadLine: UILabel!
+    @IBOutlet weak var listCheck: UILabel!
     
-    @IBOutlet weak var listImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
