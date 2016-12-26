@@ -34,7 +34,7 @@ class AddViewController: UIViewController {
         
         // 1st notification
         let notification = UILocalNotification()
-        notification.alertBody = "\(Title_text.text!)가 완료되었습니다."
+        notification.alertBody = "\(Title_text.text!)의 기간이 만료되었습니다."
         notification.alertAction = "open"
         notification.timeZone = NSTimeZone.systemTimeZone()
         notification.soundName = UILocalNotificationDefaultSoundName

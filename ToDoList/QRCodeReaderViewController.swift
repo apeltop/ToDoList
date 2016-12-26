@@ -47,6 +47,22 @@ class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjec
         else {
             KOSessionTask.storyPostTaskWithContent("\(listTitles[cur!])를 \(contents)에게서 검사맡아 완료하였습니다!", permission: KOStoryPostPermission.OnlyMe, imageUrl: nil, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
         }
+        deleteNotification()
+    }
+    
+    func deleteNotification() {
+        let app:UIApplication = UIApplication.sharedApplication()
+        
+        for oneEvent in app.scheduledLocalNotifications! {
+            let notification = oneEvent as UILocalNotification
+            let userInfoCurrent = notification.userInfo! as! [String:AnyObject]
+            let uid = userInfoCurrent["UUID"]! as! String
+            if uid == "\(listTitles)\(listDeadLines)" {
+                //Cancelling local notification
+                app.cancelLocalNotification(notification)
+                break;
+            }
+        }
     }
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!)
