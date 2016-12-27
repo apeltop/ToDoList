@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="nTV-uw-usK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launchfile.png" translatesAutoresizingMaskIntoConstraints="NO" id="nTV-uw-usK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -49,6 +49,7 @@
         <!--To-Do-list-->
         <scene sceneID="ZUM-pp-AEE">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hUL-Dt-Du5" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MainVC" id="gP4-8H-kBu" customClass="MainViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eYg-L7-rCz"/>
@@ -63,44 +64,50 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items/>
                             </toolbar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AoR-eI-gnM">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="msZ-c8-D3r">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <items/>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c2Z-vz-kex">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" rowHeight="60" id="jqg-mL-wko" customClass="ListTableViewCell" customModule="ToDoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" rowHeight="60" id="d3l-aQ-Wt7" customClass="ListTableViewCell" customModule="ToDoList" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jqg-mL-wko" id="h0d-Wd-KgH">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d3l-aQ-Wt7" id="M2q-eg-Pgp">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2016.10.22 12:00까지" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQP-n9-M3B" userLabel="ListDeadLine">
-                                                    <rect key="frame" x="19" y="36" width="281" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mF4-HX-hQ6" userLabel="ListDeadLine">
+                                                    <rect key="frame" x="304" y="23" width="39" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="나르샤캠프 iOS반 숙제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOQ-uj-obM" userLabel="listTitle">
-                                                    <rect key="frame" x="19" y="6" width="340" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="나르샤캠프 iOS반 숙제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQd-t2-r7R" userLabel="listTitle">
+                                                    <rect key="frame" x="53" y="19" width="243" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="미완료" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgy-KI-K4j">
-                                                    <rect key="frame" x="298" y="33" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="미완료" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRq-in-gHc">
+                                                    <rect key="frame" x="11" y="21" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="listCheck" destination="wgy-KI-K4j" id="U7l-Yt-kcA"/>
-                                            <outlet property="listDeadLine" destination="nQP-n9-M3B" id="v0d-0Z-8DK"/>
-                                            <outlet property="listTitle" destination="eOQ-uj-obM" id="EmJ-Qk-FLJ"/>
-                                            <segue destination="X0P-pE-MFO" kind="push" identifier="sgDetail" id="cFe-5f-8ff"/>
+                                            <outlet property="listCheck" destination="NRq-in-gHc" id="7BD-bt-ulq"/>
+                                            <outlet property="listDeadLine" destination="mF4-HX-hQ6" id="N4A-G6-Jg8"/>
+                                            <outlet property="listTitle" destination="iQd-t2-r7R" id="tld-Bz-CRm"/>
+                                            <segue destination="X0P-pE-MFO" kind="push" id="Zmk-2l-K2P"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -121,10 +128,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mainTableView" destination="AoR-eI-gnM" id="VIq-ps-tds"/>
+                        <outlet property="mainTableView" destination="c2Z-vz-kex" id="vOF-jW-5v9"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hUL-Dt-Du5" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3575.1999999999998" y="-66.11694152923539"/>
         </scene>
@@ -598,7 +604,7 @@
     </scenes>
     <resources>
         <image name="LoginWithKakao.png" width="500" height="200"/>
-        <image name="launch.png" width="375" height="667"/>
+        <image name="launchfile.png" width="375" height="667"/>
         <image name="qrcode.png" width="25" height="25"/>
     </resources>
 </document>

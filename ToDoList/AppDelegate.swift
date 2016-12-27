@@ -31,6 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
         
+        var navigationBarAppearance = UINavigationBar.appearance()
+        
+        navigationBarAppearance.barTintColor = UIColor(red: CGFloat(55.0/255.0), green: CGFloat(157.0/255.0), blue: CGFloat(174.0/255.0), alpha: 0.7)
+        navigationBarAppearance.tintColor = UIColor.whiteColor()
+        
+        navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         // Override point for customization after application launch.
 //        application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         return true
