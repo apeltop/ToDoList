@@ -109,8 +109,14 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let dest = segue.destinationViewController as! QRCodeReaderViewController
-        dest.cur = cur
+        if(segue.identifier == "DetailNacta"){
+            let dest = segue.destinationViewController as! QRCodeReaderViewController
+            dest.cur = cur
+        }
+        else if(segue.identifier == "sgDetailViewImage"){
+            let detailFull = segue.destinationViewController as! DetailFullImageViewController
+            detailFull.LoadFullImage(cur)
+        }
     }
 }
 

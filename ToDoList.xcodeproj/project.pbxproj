@@ -18,6 +18,7 @@
 		C007C7621DD1DE63006A285C /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C007C7611DD1DE63006A285C /* ListTableViewCell.swift */; };
 		C012BF621E0CF15B005109C2 /* listImageTempPlace.png in Resources */ = {isa = PBXBuildFile; fileRef = C012BF611E0CF15B005109C2 /* listImageTempPlace.png */; };
 		C01B485C1DF15DE200B20403 /* ConfigTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B485B1DF15DE200B20403 /* ConfigTableViewController.swift */; };
+		C0380D971E1229840014C8B0 /* DetailFullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0380D961E1229840014C8B0 /* DetailFullImageViewController.swift */; };
 		C05463331E0BCFA30063ABD7 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = C05463301E0BCFA30063ABD7 /* setting.png */; };
 		C05463341E0BCFA30063ABD7 /* setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C05463311E0BCFA30063ABD7 /* setting@2x.png */; };
 		C05463351E0BCFA30063ABD7 /* setting@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C05463321E0BCFA30063ABD7 /* setting@3x.png */; };
@@ -67,6 +68,7 @@
 		C007C7611DD1DE63006A285C /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewCell.swift; path = ../ListTableViewCell.swift; sourceTree = "<group>"; };
 		C012BF611E0CF15B005109C2 /* listImageTempPlace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listImageTempPlace.png; sourceTree = "<group>"; };
 		C01B485B1DF15DE200B20403 /* ConfigTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTableViewController.swift; sourceTree = "<group>"; };
+		C0380D961E1229840014C8B0 /* DetailFullImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailFullImageViewController.swift; sourceTree = "<group>"; };
 		C054632F1E0BCEF90063ABD7 /* ToDoList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ToDoList-Bridging-Header.h"; sourceTree = "<group>"; };
 		C05463301E0BCFA30063ABD7 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
 		C05463311E0BCFA30063ABD7 /* setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting@2x.png"; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		C02528F21DCDAE65002A75B5 /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
+				C0380D961E1229840014C8B0 /* DetailFullImageViewController.swift */,
 				C0960FE21DDF14C90016BDAF /* DetailViewController.swift */,
 			);
 			name = DetailView;
@@ -367,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0380D971E1229840014C8B0 /* DetailFullImageViewController.swift in Sources */,
 				C054635A1E0C9ED00063ABD7 /* QRCodeReaderViewController.swift in Sources */,
 				C09B4D5E1DF2BBFB00F7D08D /* LoginViewController.swift in Sources */,
 				AE68418C1DE148CA00D713C3 /* AddViewController.swift in Sources */,
