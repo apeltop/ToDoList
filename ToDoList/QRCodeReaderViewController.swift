@@ -57,7 +57,7 @@ class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjec
             let notification = oneEvent as UILocalNotification
             let userInfoCurrent = notification.userInfo! as! [String:AnyObject]
             let uid = userInfoCurrent["UUID"]! as! String
-            if uid == "\(listTitles)\(listDeadLines)" {
+            if uid == "\(listTitles[cur!])\(listRealDeadLines[cur!])" {
                 //Cancelling local notification
                 app.cancelLocalNotification(notification)
                 break;

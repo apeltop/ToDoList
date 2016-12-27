@@ -89,15 +89,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="나르샤캠프 iOS반 숙제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQd-t2-r7R" userLabel="listTitle">
-                                                    <rect key="frame" x="53" y="19" width="243" height="24"/>
+                                                    <rect key="frame" x="51" y="19" width="242" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hM6-Jz-PUr">
-                                                    <rect key="frame" x="20" y="19" width="24" height="24"/>
+                                                    <rect key="frame" x="13" y="17" width="34" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button" image="notCom.png"/>
+                                                    <state key="normal" title="Button" image="com.png"/>
                                                     <connections>
                                                         <segue destination="SJV-RX-Ymp" kind="push" identifier="Main2QRReaderSegue" id="C9l-ca-ogg"/>
                                                     </connections>
@@ -605,8 +605,8 @@
     </scenes>
     <resources>
         <image name="LoginWithKakao.png" width="500" height="200"/>
+        <image name="com.png" width="150" height="120"/>
         <image name="launchfile.png" width="375" height="667"/>
-        <image name="notCom.png" width="120" height="120"/>
         <image name="qrcode.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>

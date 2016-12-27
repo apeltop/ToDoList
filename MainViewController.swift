@@ -8,20 +8,48 @@
 
 import UIKit
 
+var listHeader = ["2016년 12월 30일"]
+
+var listSections = [0]
+
 var listTitles = ["나르샤캠프 iOS반 어플 마무리"]
 var listContents = ["나르샤 캠프 12월 초까지 프로젝트 끝내기"]
 var listDeadLines = ["09:00"]
-var listDeadLinesForBackGround = ["201612310900"]
+var listRealDeadLines = ["2016-12-30(금) 09:00까지"]
+var listDeadLinesForBackGround = ["201612300900"]
 var listCheck = [false]
 var listImage = Array<UIImage>()
 var listView = Array<UIView>()
+var listNSDate = Array<NSDate>()
+
+/*
+ "abcde"[0] === "a"
+ "abcde"[0...2] === "abc"
+ "abcde"[2..<4] === "cd"
+ */
+extension String {
+    
+    subscript (i: Int) -> Character {
+        return self[self.startIndex.advancedBy(i)]
+    }
+    
+    subscript (i: Int) -> String {
+        return String(self[i] as Character)
+    }
+    
+    subscript (r: Range<Int>) -> String {
+        let start = startIndex.advancedBy(r.startIndex)
+        let end = start.advancedBy(r.endIndex - r.startIndex)
+        return self[Range(start ..< end)]
+    }
+}
 
 class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource{
-    
     var checked:UIImage = UIImage(named: "com.png")!
     var notChecked:UIImage = UIImage(named: "notCom.png")!
     var searchController:UISearchController!
     
+    var curDate:String?
     let noDataLabel = UILabel()
     var whiteRoundedView : UIView!
     var temp:Int = 0
@@ -31,7 +59,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     var flag = false;
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return listHeader.count
     }
     
 /*    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -53,7 +81,11 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         
         let label: UILabel = UILabel()
         
-        label.text = "오늘"
+        let text = listHeader[section][6...listHeader[section].characters.count-1]
+        
+        print(text)
+        
+        label.text = text
         label.frame = CGRect(x: 10, y: 2, width: 100, height: 35)
         label.textColor = UIColor.whiteColor()
         view.addSubview(label)
@@ -77,19 +109,26 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     }*/
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listTitles.count
+        var ct = 0
+        for(var i = 0; i < listSections.count; i+=1){
+            if(listSections[i] == section){
+                ct+=1
+            }
+        }
+        return ct
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("cell1",forIndexPath: indexPath) as! ListTableViewCell
-        cell.listTitle.text = listTitles[indexPath.row]
-        cell.listDeadLine.text = listDeadLines[indexPath.row]
-        if (listCheck[indexPath.row] == true){
+        let idx = indexPath.section + indexPath.row
+        cell.listTitle.text = listTitles[idx]
+        cell.listDeadLine.text = listDeadLines[idx]
+        if (listCheck[idx] == true){
             cell.checkImg.setImage(checked, forState: .Normal)
             cell.checkImg.tag = temp
             temp+=1
-            cell.checkImg.enabled = false
+            cell.checkImg.userInteractionEnabled = false
         }
         else{
             cell.checkImg.setImage(notChecked, forState: .Normal)
@@ -106,7 +145,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         
         whiteRoundedView = UIView(frame: CGRectMake(10, 8, self.view.frame.size.width - 20, 45))
         
-        whiteRoundedView.layer.backgroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1.0, 1.0, 1.0, 0.85])
+        whiteRoundedView.layer.backgroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1.0, 1.0, 1.0, 0.8])
         whiteRoundedView.layer.masksToBounds = false
         whiteRoundedView.layer.cornerRadius = 2.0
         whiteRoundedView.layer.shadowOffset = CGSizeMake(-1, 1)
@@ -152,7 +191,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             let notification = oneEvent as UILocalNotification
             let userInfoCurrent = notification.userInfo! as! [String:AnyObject]
             let uid = userInfoCurrent["UUID"]! as! String
-            if uid == "\(listTitles[row])\(listDeadLines[row])" {
+            if uid == "\(listTitles[row])\(listRealDeadLines[row])" {
                 //Cancelling local notification
                 app.cancelLocalNotification(notification)
                 break;
@@ -198,6 +237,15 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         mainTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         mainTableView.backgroundView = image
         mainTableView.sectionHeaderHeight = 30
+        
+        let nsdate = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyyMMddHHmm"
+        let date = formatter.dateFromString(listDeadLinesForBackGround[0])
+        
+        formatter.dateFormat = "YYYY년 MM월 dd일"
+        curDate = formatter.stringFromDate(nsdate)
+        listNSDate.append(date!)
         //        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(MainViewController.Alert), userInfo: nil, repeats: true)
     }
     
@@ -225,9 +273,9 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             let detailView = segue.destinationViewController as!
             DetailViewController
             
-            detailView.cur = indexPath!.row
+            detailView.cur = (indexPath?.section)! + indexPath!.row
         }
-        else {
+        else if segue.identifier == "Main2QRReaderSegue"{
             let dest = segue.destinationViewController as! QRCodeReaderViewController
             dest.cur = sender?.tag
         }

@@ -44,7 +44,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
         
         MainTitleField.text = listTitles[cur]
         DetailContentField.text = listContents[cur]
-        DeadLineLabel.text = listDeadLines[cur]
+        DeadLineLabel.text = listRealDeadLines[cur]
         chooseImage.image = listImage[cur]
     }
     
