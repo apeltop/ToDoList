@@ -168,10 +168,7 @@ class AddViewController: UIViewController {
             
             
             for(var i = 0; i < listSections.count; i+=1){
-                if listSections[i] > sect {
-                    listSections[i] -= 1
-                }
-                else{
+                if listSections[i] >= sect {
                     listSections[i] += 1
                 }
             }

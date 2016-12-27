@@ -121,10 +121,9 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("cell1",forIndexPath: indexPath) as! ListTableViewCell
-        let idx = indexPath.section + indexPath.row
-        cell.listTitle.text = listTitles[idx]
-        cell.listDeadLine.text = listDeadLines[idx]
-        if (listCheck[idx] == true){
+        cell.listTitle.text = listTitles[temp]
+        cell.listDeadLine.text = listDeadLines[temp]
+        if (listCheck[temp] == true){
             cell.checkImg.setImage(checked, forState: .Normal)
             cell.checkImg.tag = temp
             temp+=1
@@ -273,7 +272,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             let detailView = segue.destinationViewController as!
             DetailViewController
             
-            detailView.cur = (indexPath?.section)! + indexPath!.row
+            detailView.cur = (sender?.tag)!
         }
         else if segue.identifier == "Main2QRReaderSegue"{
             let dest = segue.destinationViewController as! QRCodeReaderViewController
