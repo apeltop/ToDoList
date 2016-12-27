@@ -18,10 +18,13 @@ var listView = Array<UIView>()
 
 class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource{
     
+    var checked:UIImage = UIImage(named: "com.png")!
+    var notChecked:UIImage = UIImage(named: "notCom.png")!
     var searchController:UISearchController!
     
     let noDataLabel = UILabel()
     var whiteRoundedView : UIView!
+    var temp:Int = 0
     
     @IBOutlet weak var mainTableView: UITableView!
     
@@ -30,6 +33,48 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
+    
+/*    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Section \(section)"
+    }*/
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        /*let vw = UIView()
+        vw.backgroundColor = UIColor.redColor()
+        let label = UILabel()
+        
+        label.text = "   오늘"
+        
+        label.textColor = UIColor.whiteColor()
+        
+        return label*/
+        let view = UIView()
+        view.backgroundColor = UIColor.clearColor()
+        
+        let label: UILabel = UILabel()
+        
+        label.text = "오늘"
+        label.frame = CGRect(x: 10, y: 2, width: 100, height: 35)
+        label.textColor = UIColor.whiteColor()
+        view.addSubview(label)
+        
+        return view
+    }
+    
+    
+/*    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 5))
+        let label = UILabel(frame: CGRect(x: 20, y: 20, width: 150, height: 50))
+        label.text = "오늘"
+        label.textColor = UIColor.whiteColor()
+        
+        
+        
+        view.addSubview(label)
+        
+        return view
+    }*/
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listTitles.count
@@ -41,10 +86,15 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         cell.listTitle.text = listTitles[indexPath.row]
         cell.listDeadLine.text = listDeadLines[indexPath.row]
         if (listCheck[indexPath.row] == true){
-            cell.listCheck.text = "완료"
+            cell.checkImg.setImage(checked, forState: .Normal)
+            cell.checkImg.tag = temp
+            temp+=1
+            cell.checkImg.enabled = false
         }
         else{
-            cell.listCheck.text = "미완료"
+            cell.checkImg.setImage(notChecked, forState: .Normal)
+            cell.checkImg.tag = temp
+            temp+=1
         }
         if flag == false {
             for(var i = 0; i < listView.count; i+=1){
@@ -56,7 +106,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         
         whiteRoundedView = UIView(frame: CGRectMake(10, 8, self.view.frame.size.width - 20, 45))
         
-        whiteRoundedView.layer.backgroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1.0, 1.0, 1.0, 0.7])
+        whiteRoundedView.layer.backgroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1.0, 1.0, 1.0, 0.85])
         whiteRoundedView.layer.masksToBounds = false
         whiteRoundedView.layer.cornerRadius = 2.0
         whiteRoundedView.layer.shadowOffset = CGSizeMake(-1, 1)
@@ -147,6 +197,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         mainTableView.tableFooterView = UIView(frame: CGRectZero)
         mainTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         mainTableView.backgroundView = image
+        mainTableView.sectionHeaderHeight = 30
         //        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(MainViewController.Alert), userInfo: nil, repeats: true)
     }
     
@@ -158,6 +209,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     override func viewWillAppear(animated: Bool) {
         flag = false
+        temp = 0
         mainTableView.reloadData()
     }
     
@@ -166,7 +218,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
+
         if segue.identifier == "sgDetail"{
             let cell = sender as! UITableViewCell
             let indexPath = self.mainTableView.indexPathForCell(cell)
@@ -174,6 +226,10 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             DetailViewController
             
             detailView.cur = indexPath!.row
+        }
+        else {
+            let dest = segue.destinationViewController as! QRCodeReaderViewController
+            dest.cur = sender?.tag
         }
     }
     //<DetailViewPart/>

@@ -94,20 +94,21 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="미완료" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRq-in-gHc">
-                                                    <rect key="frame" x="11" y="21" width="42" height="21"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hM6-Jz-PUr">
+                                                    <rect key="frame" x="20" y="19" width="24" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <state key="normal" title="Button" image="notCom.png"/>
+                                                    <connections>
+                                                        <segue destination="SJV-RX-Ymp" kind="push" identifier="Main2QRReaderSegue" id="C9l-ca-ogg"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="listCheck" destination="NRq-in-gHc" id="7BD-bt-ulq"/>
+                                            <outlet property="checkImg" destination="hM6-Jz-PUr" id="pZn-gk-iwX"/>
                                             <outlet property="listDeadLine" destination="mF4-HX-hQ6" id="N4A-G6-Jg8"/>
                                             <outlet property="listTitle" destination="iQd-t2-r7R" id="tld-Bz-CRm"/>
-                                            <segue destination="X0P-pE-MFO" kind="push" id="Zmk-2l-K2P"/>
+                                            <segue destination="X0P-pE-MFO" kind="push" identifier="sgDetail" id="Zmk-2l-K2P"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -228,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Do-4A-OH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4672.8000000000002" y="-373.76311844077964"/>
+            <point key="canvasLocation" x="4673" y="-403"/>
         </scene>
         <!--내 QR코드-->
         <scene sceneID="OOc-O0-f5S">
@@ -309,7 +310,7 @@
                                 <items>
                                     <barButtonItem title="검사" id="az5-IE-x1J">
                                         <connections>
-                                            <segue destination="SJV-RX-Ymp" kind="push" id="6gk-79-HtP"/>
+                                            <segue destination="SJV-RX-Ymp" kind="push" identifier="DetailNacta" id="6gk-79-HtP"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -599,12 +600,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cl8-1G-t2G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5486" y="-23"/>
+            <point key="canvasLocation" x="5486" y="-45"/>
         </scene>
     </scenes>
     <resources>
         <image name="LoginWithKakao.png" width="500" height="200"/>
         <image name="launchfile.png" width="375" height="667"/>
+        <image name="notCom.png" width="120" height="120"/>
         <image name="qrcode.png" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="C9l-ca-ogg"/>
+    </inferredMetricsTieBreakers>
 </document>
