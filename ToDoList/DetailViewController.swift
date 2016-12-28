@@ -46,6 +46,9 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
         
         chooseImage.layer.cornerRadius = 10
         chooseImage.clipsToBounds = true;
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.grayColor()
+        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
     }
     
     func myAlert(title: String, message: String){

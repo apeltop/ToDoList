@@ -290,6 +290,10 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(55.0/255.0), green: CGFloat(157.0/255.0), blue: CGFloat(174.0/255.0), alpha: 0.7)
+        
         let image = UIImageView(image: UIImage(named: "wallpapaer.jpg"))
         listImage.append(UIImage(named: "listImageTempPlace.png")!)
         
@@ -315,6 +319,10 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         //        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(MainViewController.Alert), userInfo: nil, repeats: true)
     }
     
+    override func viewDidAppear(animated: Bool) {
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -325,8 +333,14 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         flag = false
         mainTableView.reloadData()
         temp = 0
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(55.0/255.0), green: CGFloat(157.0/255.0), blue: CGFloat(174.0/255.0), alpha: 0.7)
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.navigationBar.tintColor = UIColor.grayColor()
+        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+    }
     //<DetailViewPart>
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
