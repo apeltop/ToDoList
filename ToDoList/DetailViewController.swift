@@ -43,6 +43,9 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
         if(listImage[cur] == UIImage(named: "listImageTempPlace.png")){
             FullImageButton.enabled = false
         }
+        
+        chooseImage.layer.cornerRadius = 10
+        chooseImage.clipsToBounds = true;
     }
     
     func myAlert(title: String, message: String){
@@ -78,6 +81,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
             chooseImage.image = captureImage
             FullImageButton.enabled = true
         }
+        chooseImage.contentMode = UIViewContentMode.ScaleAspectFill
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
