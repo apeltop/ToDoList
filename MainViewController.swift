@@ -143,13 +143,17 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             cell.checkImg.tag = temp
             temp+=1
         }
-        if flag == false {
+        /*if flag == false {
             for(var i = 0; i < listView.count; i+=1){
                 listView[i].removeFromSuperview()
             }
             listView.removeAll()
             flag = true
+        }*/
+        if row < listView.count{
+            listView[row].removeFromSuperview()
         }
+        
         if temp == listTitles.count {
             temp = 0
             flag = false
@@ -163,7 +167,11 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         whiteRoundedView.layer.shadowOffset = CGSizeMake(-1, 1)
         whiteRoundedView.layer.shadowOpacity = 0.1
         
-        listView.append(whiteRoundedView)
+        if row < listView.count {
+            listView[row] = whiteRoundedView
+        } else {
+            listView.append(whiteRoundedView)
+        }
         
         cell.contentView.addSubview(whiteRoundedView!)
         cell.contentView.sendSubviewToBack(whiteRoundedView!)
@@ -258,6 +266,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         formatter.dateFormat = "YYYY년 MM월 dd일"
         curDate = formatter.stringFromDate(nsdate)
         listNSDate.append(date!)
+        listView.append(UIView())
         //        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(MainViewController.Alert), userInfo: nil, repeats: true)
     }
     
