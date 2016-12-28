@@ -85,9 +85,13 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         
         let label: UILabel = UILabel()
         if listHeader.count != 0 {
-            let text = listHeader[section][6...listHeader[section].characters.count-1]
+            var text = listHeader[section][6...listHeader[section].characters.count-1]
             
             print(text)
+            
+            if (listHeader[section] == curDate){
+                text = "오늘"
+            }
             
             label.text = text
             label.frame = CGRect(x: 10, y: 2, width: 100, height: 35)
