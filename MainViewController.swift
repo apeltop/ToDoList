@@ -209,6 +209,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             listImage.removeAtIndex(indexPath.row)
             listCheck.removeAtIndex(indexPath.row)
             listRealDeadLines.removeAtIndex(indexPath.row)
+            listView[indexPath.row].removeFromSuperview()
             listView.removeAtIndex(indexPath.row)
             listNSDate.removeAtIndex(indexPath.row)
             listDeadLinesForBackGround.removeAtIndex(indexPath.row)
@@ -224,11 +225,27 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
                 }
             }
             
-            if tf == true {
-                listHeader.removeAtIndex(rsec)
-            }
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-            mainTableView.reloadData()
+            mainTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            
+            let seconds = 0.3
+            let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+            let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            
+            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                
+                for(var i = 0; i < listSections.count; i+=1){
+                    if rsec < listSections[i] {
+                        listSections[i] -= 1
+                    }
+                }
+                
+                if tf == true {
+                    listHeader.removeAtIndex(rsec)
+                }
+                self.mainTableView.reloadData()
+                
+            })
+            
         }
     }
     

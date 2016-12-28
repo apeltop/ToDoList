@@ -140,7 +140,6 @@ class AddViewController: UIViewController {
         print(selDate)
         formatter.dateFormat = "HH:mm"
         let dead = formatter.stringFromDate(datePicker.date)
-        listDeadLines.append(dead)
         formatter.dateFormat = "YYYY년 MM월 dd일"
         var sect = -1
         var whr = listNSDate.count
