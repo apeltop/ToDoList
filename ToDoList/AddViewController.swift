@@ -114,7 +114,8 @@ class AddViewController: UIViewController {
         else{
             print(Result)
             if(Result <= 0){
-                warringAlert("Warring", alertMessage: "시간이 맞지 않습니다.", actionTitle: "확인")
+                warringAlert("Warring", alertMessage: "시간이 옳지 않습니다.", actionTitle: "확인")
+                return
             }
             
             addDoList()

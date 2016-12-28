@@ -267,12 +267,20 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         // Pass the selected object to the new view controller.
 
         if segue.identifier == "sgDetail"{
-            let cell = sender as! UITableViewCell
+            let cell = sender as! ListTableViewCell
             let indexPath = self.mainTableView.indexPathForCell(cell)
             let detailView = segue.destinationViewController as!
             DetailViewController
+            var row = 0
+            indexPath?.row
             
-            detailView.cur = (sender?.tag)!
+            for(var i = 0; i < listSections.count; i+=1){
+                if listSections[i] < indexPath?.section {
+                    row+=1
+                }
+            }
+            
+            detailView.cur = row+(indexPath?.row)!
         }
         else if segue.identifier == "Main2QRReaderSegue"{
             let dest = segue.destinationViewController as! QRCodeReaderViewController
