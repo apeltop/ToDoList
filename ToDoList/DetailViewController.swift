@@ -105,6 +105,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
     @IBAction func FixDone(sender: UIBarButtonItem) {
         listTitles[cur] = MainTitleField.text!
         listContents[cur] = DetailContentField.text!
+        KOSessionTask.storyPostNoteTaskWithContent("저는 \(listTitles[cur])를 \(MainTitleField.text!)로 고쳤습니다.", permission: KOStoryPostPermission.OnlyMe, sharable: false, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
         self.navigationController?.popViewControllerAnimated(true)
     }
     

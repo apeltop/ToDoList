@@ -121,9 +121,18 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("cell1",forIndexPath: indexPath) as! ListTableViewCell
-        cell.listTitle.text = listTitles[temp]
-        cell.listDeadLine.text = listDeadLines[temp]
-        if (listCheck[temp] == true){
+        var row = 0
+        
+        for(var i = 0; i < listSections.count; i+=1){
+            if listSections[i] < indexPath.section {
+                row+=1
+            }
+        }
+        
+        row = row+indexPath.row
+        cell.listTitle.text = listTitles[row]
+        cell.listDeadLine.text = listDeadLines[row]
+        if (listCheck[row] == true){
             cell.checkImg.setImage(checked, forState: .Normal)
             cell.checkImg.tag = temp
             temp+=1
@@ -140,6 +149,10 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             }
             listView.removeAll()
             flag = true
+        }
+        if temp == listTitles.count {
+            temp = 0
+            flag = false
         }
         
         whiteRoundedView = UIView(frame: CGRectMake(10, 8, self.view.frame.size.width - 20, 45))
@@ -256,8 +269,8 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     override func viewWillAppear(animated: Bool) {
         flag = false
-        temp = 0
         mainTableView.reloadData()
+        temp = 0
     }
     
     //<DetailViewPart>
@@ -272,7 +285,6 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             let detailView = segue.destinationViewController as!
             DetailViewController
             var row = 0
-            indexPath?.row
             
             for(var i = 0; i < listSections.count; i+=1){
                 if listSections[i] < indexPath?.section {
