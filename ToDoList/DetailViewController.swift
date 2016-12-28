@@ -86,6 +86,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
             captureImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             
             chooseImage.image = captureImage
+            listImage[cur] = captureImage!
             FullImageButton.enabled = true
         }
         chooseImage.contentMode = UIViewContentMode.ScaleAspectFill
