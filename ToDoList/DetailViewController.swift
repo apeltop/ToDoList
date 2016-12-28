@@ -9,20 +9,19 @@
 import UIKit
 import MobileCoreServices
 
-var captureImage: UIImage!
+var captureImage = UIImage(named: "listImageTempPlace.png")
 class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     var cur = 0
-    var receiveMainTitle = ""
-    var receiveDetailContent = ""
-    var receiveDeadLine = ""
     var receivedContants = ""
     
     let imagePicker: UIImagePickerController! = UIImagePickerController()
     var flagImageSave = false
     
     @IBOutlet weak var chooseImage: UIImageView!
-    @IBOutlet weak var MainTitleField: UITextField!
-    @IBOutlet weak var DetailContentField: UITextField!
+    @IBOutlet weak var MainTitleField: UITextField!/////////
+    
+    @IBOutlet weak var DetailContentField: UITextView!
+    //@IBOutlet weak var DetailContentField: UITextField!
     @IBOutlet weak var DeadLineLabel: UILabel!
     
     @IBOutlet weak var DoneButton: UIBarButtonItem!
@@ -32,13 +31,10 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
         
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         // Do any additional setup after loading the view.
-        MainTitleField.text = receiveMainTitle
-        DetailContentField.text = receiveDetailContent
-        DeadLineLabel.text = receiveDeadLine
         
         view.addGestureRecognizer(tap)
         MainTitleField.delegate = self
-        DetailContentField.delegate = self
+        //DetailContentField.delegate = self
         
         MainTitleField.text = listTitles[cur]
         DetailContentField.text = listContents[cur]
@@ -105,8 +101,10 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
     
     @IBAction func FixDone(sender: UIBarButtonItem) {
         listTitles[cur] = MainTitleField.text!
-        listContents[cur] = DetailContentField.text!
-        listImage[cur] = captureImage
+        let contentsTemp = DetailContentField.text!
+        listContents[cur] = contentsTemp
+        listImage[cur] = captureImage!
+        captureImage = UIImage(named: "listImageTempPlace.png")
         KOSessionTask.storyPostNoteTaskWithContent("저는 \(listTitles[cur])를 \(MainTitleField.text!)로 고쳤습니다.", permission: KOStoryPostPermission.OnlyMe, sharable: false, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
         self.navigationController?.popViewControllerAnimated(true)
     }

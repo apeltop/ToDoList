@@ -23,12 +23,13 @@ class AddViewController: UIViewController {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    @IBOutlet weak var AddDoneButton: UIBarButtonItem!
     @IBOutlet weak var current_time: UILabel!
     @IBOutlet weak var Selection_time: UILabel!
     
-    @IBOutlet weak var Title_text: UITextField!
-    @IBOutlet weak var to_do: UITextField!
+    @IBOutlet weak var Title_text: UITextField!////
+    
+    @IBOutlet weak var to_do: UITextView!
+    //@IBOutlet weak var to_do: UITextField!
     @IBOutlet weak var Selection_Label: UILabel!
     
     func addNotification() {
