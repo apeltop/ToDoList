@@ -59,54 +59,59 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     var flag = false;
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if listHeader.count == 0 {
+            return 1
+        }
         return listHeader.count
     }
     
-/*    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section \(section)"
-    }*/
+    /*    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+     return "Section \(section)"
+     }*/
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         /*let vw = UIView()
-        vw.backgroundColor = UIColor.redColor()
-        let label = UILabel()
+         vw.backgroundColor = UIColor.redColor()
+         let label = UILabel()
+         
+         label.text = "   오늘"
+         
+         label.textColor = UIColor.whiteColor()
+         
+         return label*/
         
-        label.text = "   오늘"
-        
-        label.textColor = UIColor.whiteColor()
-        
-        return label*/
         let view = UIView()
         view.backgroundColor = UIColor.clearColor()
         
         let label: UILabel = UILabel()
-        
-        let text = listHeader[section][6...listHeader[section].characters.count-1]
-        
-        print(text)
-        
-        label.text = text
-        label.frame = CGRect(x: 10, y: 2, width: 100, height: 35)
-        label.textColor = UIColor.whiteColor()
-        view.addSubview(label)
+        if listHeader.count != 0 {
+            let text = listHeader[section][6...listHeader[section].characters.count-1]
+            
+            print(text)
+            
+            label.text = text
+            label.frame = CGRect(x: 10, y: 2, width: 100, height: 35)
+            label.textColor = UIColor.whiteColor()
+            view.addSubview(label)
+        }
         
         return view
     }
     
     
-/*    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 5))
-        let label = UILabel(frame: CGRect(x: 20, y: 20, width: 150, height: 50))
-        label.text = "오늘"
-        label.textColor = UIColor.whiteColor()
-        
-        
-        
-        view.addSubview(label)
-        
-        return view
-    }*/
+    /*    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+     
+     let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 5))
+     let label = UILabel(frame: CGRect(x: 20, y: 20, width: 150, height: 50))
+     label.text = "오늘"
+     label.textColor = UIColor.whiteColor()
+     
+     
+     
+     view.addSubview(label)
+     
+     return view
+     }*/
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var ct = 0
@@ -144,12 +149,12 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             temp+=1
         }
         /*if flag == false {
-            for(var i = 0; i < listView.count; i+=1){
-                listView[i].removeFromSuperview()
-            }
-            listView.removeAll()
-            flag = true
-        }*/
+         for(var i = 0; i < listView.count; i+=1){
+         listView[i].removeFromSuperview()
+         }
+         listView.removeAll()
+         flag = true
+         }*/
         if row < listView.count{
             listView[row].removeFromSuperview()
         }
@@ -161,7 +166,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         
         whiteRoundedView = UIView(frame: CGRectMake(10, 8, self.view.frame.size.width - 20, 45))
         
-        whiteRoundedView.layer.backgroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1.0, 1.0, 1.0, 0.8])
+        whiteRoundedView.layer.backgroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1.0, 1.0, 1.0, 1.0])
         whiteRoundedView.layer.masksToBounds = false
         whiteRoundedView.layer.cornerRadius = 2.0
         whiteRoundedView.layer.shadowOffset = CGSizeMake(-1, 1)
@@ -199,8 +204,27 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             listDeadLines.removeAtIndex(indexPath.row)
             listImage.removeAtIndex(indexPath.row)
             listCheck.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            listRealDeadLines.removeAtIndex(indexPath.row)
+            listView.removeAtIndex(indexPath.row)
+            listNSDate.removeAtIndex(indexPath.row)
+            listDeadLinesForBackGround.removeAtIndex(indexPath.row)
             
+            var tf = true
+            let rsec = listSections[indexPath.row]
+            listSections.removeAtIndex(indexPath.row)
+            
+            for(var i = 0; i < listSections.count; i+=1){
+                if listSections[i] == rsec {
+                    tf = false;
+                    break;
+                }
+            }
+            
+            if tf == true {
+                listHeader.removeAtIndex(rsec)
+            }
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            mainTableView.reloadData()
         }
     }
     
@@ -287,7 +311,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-
+        
         if segue.identifier == "sgDetail"{
             let cell = sender as! ListTableViewCell
             let indexPath = self.mainTableView.indexPathForCell(cell)
