@@ -33,6 +33,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
         // Do any additional setup after loading the view.
         
         view.addGestureRecognizer(tap)
+
         MainTitleField.delegate = self
         //DetailContentField.delegate = self
         
@@ -47,6 +48,9 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
         chooseImage.layer.cornerRadius = 10
         chooseImage.clipsToBounds = true;
         
+        self.view.tintColor = UIColor.grayColor()
+        
+        
         self.navigationController?.navigationBar.tintColor = UIColor.grayColor()
         self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
     }
@@ -58,7 +62,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    @IBAction func btnLoadImageFromLibrary(sender: UIButton) {
+    @IBAction func btnLoadImageFromLibrary(sender: AnyObject?) {
         if(UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary)){
             flagImageSave = false
             

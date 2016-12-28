@@ -34,6 +34,15 @@
 		C0D542241E12645400ECF8D3 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D542231E12645400ECF8D3 /* appicon.png */; };
 		C0D542341E12838700ECF8D3 /* com.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D542331E12838700ECF8D3 /* com.png */; };
 		C0D542361E12865600ECF8D3 /* notCom.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D542351E12865600ECF8D3 /* notCom.png */; };
+		C0D542381E13D87900ECF8D3 /* memo.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D542371E13D87900ECF8D3 /* memo.png */; };
+		C0D5423E1E13DE4000ECF8D3 /* detailback.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0D5423D1E13DE4000ECF8D3 /* detailback.jpg */; };
+		C0D542401E13E1FD00ECF8D3 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D5423F1E13E1FD00ECF8D3 /* AddTableViewController.swift */; };
+		C0D542471E13E73600ECF8D3 /* cal.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D542411E13E73600ECF8D3 /* cal.png */; };
+		C0D542481E13E73600ECF8D3 /* ti.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D542421E13E73600ECF8D3 /* ti.png */; };
+		C0D542491E13E73600ECF8D3 /* clip.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D542431E13E73600ECF8D3 /* clip.png */; };
+		C0D5424A1E13E73600ECF8D3 /* stick.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D542441E13E73600ECF8D3 /* stick.png */; };
+		C0D5424B1E13E73600ECF8D3 /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D542451E13E73600ECF8D3 /* x.png */; };
+		C0D5424C1E13E73600ECF8D3 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = C0D542461E13E73600ECF8D3 /* check.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +97,15 @@
 		C0D542231E12645400ECF8D3 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
 		C0D542331E12838700ECF8D3 /* com.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = com.png; sourceTree = "<group>"; };
 		C0D542351E12865600ECF8D3 /* notCom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notCom.png; sourceTree = "<group>"; };
+		C0D542371E13D87900ECF8D3 /* memo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = memo.png; sourceTree = "<group>"; };
+		C0D5423D1E13DE4000ECF8D3 /* detailback.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = detailback.jpg; sourceTree = "<group>"; };
+		C0D5423F1E13E1FD00ECF8D3 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
+		C0D542411E13E73600ECF8D3 /* cal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cal.png; sourceTree = "<group>"; };
+		C0D542421E13E73600ECF8D3 /* ti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ti.png; sourceTree = "<group>"; };
+		C0D542431E13E73600ECF8D3 /* clip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clip.png; sourceTree = "<group>"; };
+		C0D542441E13E73600ECF8D3 /* stick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stick.png; sourceTree = "<group>"; };
+		C0D542451E13E73600ECF8D3 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
+		C0D542461E13E73600ECF8D3 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +170,7 @@
 				AE35E4C21DCD87E9007185A9 /* LaunchScreen.storyboard */,
 				AE35E4C51DCD87E9007185A9 /* Info.plist */,
 				C05463591E0C9ED00063ABD7 /* QRCodeReaderViewController.swift */,
+				C0D5423F1E13E1FD00ECF8D3 /* AddTableViewController.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -213,8 +232,16 @@
 		C05463361E0BCFA50063ABD7 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				C0D5423D1E13DE4000ECF8D3 /* detailback.jpg */,
+				C0D542371E13D87900ECF8D3 /* memo.png */,
 				C0D542351E12865600ECF8D3 /* notCom.png */,
 				C0D542231E12645400ECF8D3 /* appicon.png */,
+				C0D542411E13E73600ECF8D3 /* cal.png */,
+				C0D542421E13E73600ECF8D3 /* ti.png */,
+				C0D542431E13E73600ECF8D3 /* clip.png */,
+				C0D542441E13E73600ECF8D3 /* stick.png */,
+				C0D542451E13E73600ECF8D3 /* x.png */,
+				C0D542461E13E73600ECF8D3 /* check.png */,
 				C0D542331E12838700ECF8D3 /* com.png */,
 				C012BF611E0CF15B005109C2 /* listImageTempPlace.png */,
 				C05463371E0BD7CD0063ABD7 /* LoginWithKakao.png */,
@@ -344,14 +371,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0D542481E13E73600ECF8D3 /* ti.png in Resources */,
+				C0D5423E1E13DE4000ECF8D3 /* detailback.jpg in Resources */,
 				C05463351E0BCFA30063ABD7 /* setting@3x.png in Resources */,
 				C05463331E0BCFA30063ABD7 /* setting.png in Resources */,
+				C0D5424C1E13E73600ECF8D3 /* check.png in Resources */,
 				C05463381E0BD7CD0063ABD7 /* LoginWithKakao.png in Resources */,
+				C0D542381E13D87900ECF8D3 /* memo.png in Resources */,
 				C0D542361E12865600ECF8D3 /* notCom.png in Resources */,
 				C0D542201E12642500ECF8D3 /* launchfile.png in Resources */,
 				C0D542341E12838700ECF8D3 /* com.png in Resources */,
+				C0D5424B1E13E73600ECF8D3 /* x.png in Resources */,
 				C0D542241E12645400ECF8D3 /* appicon.png in Resources */,
+				C0D5424A1E13E73600ECF8D3 /* stick.png in Resources */,
+				C0D542471E13E73600ECF8D3 /* cal.png in Resources */,
 				C054635C1E0CA2E30063ABD7 /* qrcode.png in Resources */,
+				C0D542491E13E73600ECF8D3 /* clip.png in Resources */,
 				C0D542221E12642E00ECF8D3 /* wallpapaer.jpg in Resources */,
 				AE35E4C41DCD87E9007185A9 /* LaunchScreen.storyboard in Resources */,
 				AE35E4C11DCD87E9007185A9 /* Assets.xcassets in Resources */,
@@ -383,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0380D971E1229840014C8B0 /* DetailFullImageViewController.swift in Sources */,
+				C0D542401E13E1FD00ECF8D3 /* AddTableViewController.swift in Sources */,
 				C054635A1E0C9ED00063ABD7 /* QRCodeReaderViewController.swift in Sources */,
 				C09B4D5E1DF2BBFB00F7D08D /* LoginViewController.swift in Sources */,
 				AE68418C1DE148CA00D713C3 /* AddViewController.swift in Sources */,

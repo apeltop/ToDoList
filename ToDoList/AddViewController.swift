@@ -23,7 +23,6 @@ class AddViewController: UIViewController {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    @IBOutlet weak var current_time: UILabel!
     @IBOutlet weak var Selection_time: UILabel!
     
     @IBOutlet weak var Title_text: UITextField!////
@@ -127,7 +126,6 @@ class AddViewController: UIViewController {
             
             Title_text.text = ""
             to_do.text = ""
-            current_time.text = ""
             self.navigationController?.popViewControllerAnimated(true)
         }
     }
