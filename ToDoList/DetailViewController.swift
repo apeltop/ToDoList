@@ -26,9 +26,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
     @IBOutlet weak var DeadLineLabel: UILabel!
     
     @IBOutlet weak var DoneButton: UIBarButtonItem!
-    
-    @IBOutlet weak var AddFile: UIButton!
-    
+    @IBOutlet weak var FullImageButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,6 +44,9 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
         DetailContentField.text = listContents[cur]
         DeadLineLabel.text = listRealDeadLines[cur]
         chooseImage.image = listImage[cur]
+        if(listImage[cur] == UIImage(named: "listImageTempPlace.png")){
+            FullImageButton.enabled = false
+        }
     }
     
     func myAlert(title: String, message: String){
@@ -79,7 +80,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
             captureImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             
             chooseImage.image = captureImage
-            listImage[cur] = captureImage
+            FullImageButton.enabled = true
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -105,6 +106,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
     @IBAction func FixDone(sender: UIBarButtonItem) {
         listTitles[cur] = MainTitleField.text!
         listContents[cur] = DetailContentField.text!
+        listImage[cur] = captureImage
         KOSessionTask.storyPostNoteTaskWithContent("저는 \(listTitles[cur])를 \(MainTitleField.text!)로 고쳤습니다.", permission: KOStoryPostPermission.OnlyMe, sharable: false, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
         self.navigationController?.popViewControllerAnimated(true)
     }
