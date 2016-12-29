@@ -9,7 +9,7 @@
 import UIKit
 
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, UITextViewDelegate {
     let timeSelector: Selector = #selector(AddViewController.updateTime)
     
     let interval = 1.0
@@ -57,6 +57,20 @@ class AddViewController: UIViewController {
         NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: timeSelector, userInfo: nil, repeats: true)
         
         view.addGestureRecognizer(tap)
+        to_do.delegate = self
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "메모를 입력해주세요"
+            textView.textColor = UIColor.lightGrayColor()
+        }
+    }
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.text == "메모를 입력해주세요" {
+            textView.text = ""
+            textView.textColor = UIColor.blackColor()
+        }
     }
     
     func hideKeyboard(){
@@ -79,9 +93,6 @@ class AddViewController: UIViewController {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd(EEE) HH:mm"
         Selection_time.text = formatter.stringFromDate(datePickerView.date)
-        
-        formatter.dateFormat = "yyyyMMddHHmm"
-        listDeadLinesForBackGround.append(formatter.stringFromDate(datePickerView.date))
     }
     
     func updateTime(){

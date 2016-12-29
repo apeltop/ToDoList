@@ -8,16 +8,15 @@
 
 import UIKit
 
-var listHeader = ["2016년 12월 30일"]
+var listHeader: [String] = ["2016년 12월 30일"]
 
-var listSections = [0]
+var listSections: [Int] = Array<Int>()
 
-var listTitles = ["나르샤캠프 iOS반 어플 마무리"]
-var listContents = ["나르샤 캠프 12월 초까지 프로젝트 끝내기"]
-var listDeadLines = ["09:00"]
-var listRealDeadLines = ["2016-12-30(금) 09:00까지"]
-var listDeadLinesForBackGround = ["201612300900"]
-var listCheck = [false]
+var listTitles: [String] = ["나르샤캠프 iOS반 어플 마무리"]
+var listContents: [String] = ["나르샤 캠프 12월 초까지 프로젝트 끝내기"]
+var listDeadLines: [String] = ["09:00"]
+var listRealDeadLines: [String] = ["2016-12-30(금) 09:00까지"]
+var listCheck: [Bool] = [false]
 var listImage = Array<UIImage>()
 var listView = Array<UIView>()
 var listNSDate = Array<NSDate>()
@@ -201,22 +200,30 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         if editingStyle == UITableViewCellEditingStyle.Delete {
             KOSessionTask.storyPostNoteTaskWithContent("저는 \(listDeadLines[indexPath.row])까지 할 일이였던 \(listTitles[indexPath.row])을(를) 취소하였습니다.", permission: KOStoryPostPermission.OnlyMe, sharable: false, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
             
-            deleteNotification(indexPath.row)
+            var row = 0
+            for(var i = 0; i < listSections.count; i+=1){
+                if listSections[i] < indexPath.section {
+                    row+=1
+                }
+            }
             
-            listTitles.removeAtIndex(indexPath.row)
-            listContents.removeAtIndex(indexPath.row)
-            listDeadLines.removeAtIndex(indexPath.row)
-            listImage.removeAtIndex(indexPath.row)
-            listCheck.removeAtIndex(indexPath.row)
-            listRealDeadLines.removeAtIndex(indexPath.row)
+            row = row+indexPath.row
+            
+            deleteNotification(row)
+            
+            listTitles.removeAtIndex(row)
+            listContents.removeAtIndex(row)
+            listDeadLines.removeAtIndex(row)
+            listImage.removeAtIndex(row)
+            listCheck.removeAtIndex(row)
+            listRealDeadLines.removeAtIndex(row)
             listView[indexPath.row].removeFromSuperview()
-            listView.removeAtIndex(indexPath.row)
-            listNSDate.removeAtIndex(indexPath.row)
-            listDeadLinesForBackGround.removeAtIndex(indexPath.row)
+            listView.removeAtIndex(row)
+            listNSDate.removeAtIndex(row)
             
             var tf = true
-            let rsec = listSections[indexPath.row]
-            listSections.removeAtIndex(indexPath.row)
+            let rsec = listSections[row]
+            listSections.removeAtIndex(row)
             
             for(var i = 0; i < listSections.count; i+=1){
                 if listSections[i] == rsec {
@@ -233,17 +240,15 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             
             dispatch_after(dispatchTime, dispatch_get_main_queue(), {
                 
-                for(var i = 0; i < listSections.count; i+=1){
-                    if rsec < listSections[i] {
-                        listSections[i] -= 1
-                    }
-                }
-                
                 if tf == true {
+                    for(var i = 0; i < listSections.count; i+=1){
+                        if rsec < listSections[i] {
+                            listSections[i] -= 1
+                        }
+                    }
                     listHeader.removeAtIndex(rsec)
+                    self.mainTableView.reloadData()
                 }
-                self.mainTableView.reloadData()
-                
             })
             
         }
@@ -297,6 +302,17 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         let image = UIImageView(image: UIImage(named: "wallpapaer.jpg"))
         listImage.append(UIImage(named: "listImageTempPlace.png")!)
         
+        let nsdate = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd(EEE) HH:mm까지"
+        let date = formatter.dateFromString(listRealDeadLines[0])
+        
+        formatter.dateFormat = "YYYY년 MM월 dd일"
+        curDate = formatter.stringFromDate(nsdate)
+        listNSDate.append(date!)
+        listView.append(UIView())
+        listSections.append(0)
+        
         mainTableView.dataSource = self
         mainTableView.delegate = self
         self.navigationController?.navigationBar.hidden = false
@@ -307,15 +323,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         mainTableView.backgroundView = image
         mainTableView.sectionHeaderHeight = 30
         
-        let nsdate = NSDate()
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyyMMddHHmm"
-        let date = formatter.dateFromString(listDeadLinesForBackGround[0])
-        
-        formatter.dateFormat = "YYYY년 MM월 dd일"
-        curDate = formatter.stringFromDate(nsdate)
-        listNSDate.append(date!)
-        listView.append(UIView())
+
         //        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(MainViewController.Alert), userInfo: nil, repeats: true)
     }
     
@@ -333,14 +341,8 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         flag = false
         mainTableView.reloadData()
         temp = 0
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(55.0/255.0), green: CGFloat(157.0/255.0), blue: CGFloat(174.0/255.0), alpha: 0.7)
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        self.navigationController?.navigationBar.tintColor = UIColor.grayColor()
-        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
-    }
     //<DetailViewPart>
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         

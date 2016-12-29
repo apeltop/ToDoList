@@ -21,7 +21,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
     @IBOutlet weak var MainTitleField: UITextField!/////////
     
     @IBOutlet weak var DetailContentField: UITextView!
-    //@IBOutlet weak var DetailContentField: UITextField!
+    //@IBOutlet weak var rDetailContentField: UITextField!
     @IBOutlet weak var DeadLineLabel: UILabel!
     
     @IBOutlet weak var DoneButton: UIBarButtonItem!
@@ -30,6 +30,8 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
         super.viewDidLoad()
         
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        
+
         // Do any additional setup after loading the view.
         
         view.addGestureRecognizer(tap)
@@ -48,12 +50,11 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
         chooseImage.layer.cornerRadius = 10
         chooseImage.clipsToBounds = true;
         
-        self.view.tintColor = UIColor.grayColor()
         
         
-        self.navigationController?.navigationBar.tintColor = UIColor.grayColor()
-        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
     }
+    
+
     
     func myAlert(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
