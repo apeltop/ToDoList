@@ -9,7 +9,7 @@
 import UIKit
 
 
-class AddViewController: UIViewController, UITextViewDelegate {
+class AddViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     let timeSelector: Selector = #selector(AddViewController.updateTime)
     
     let interval = 1.0
@@ -59,6 +59,16 @@ class AddViewController: UIViewController, UITextViewDelegate {
         
         view.addGestureRecognizer(tap)
         to_do.delegate = self
+        Title_text.delegate = self
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        hideKeyboard()
+        return true
+    }
+    
+    func hideKeyboard(){
+        view.endEditing(true)
     }
     
     func textViewDidEndEditing(textView: UITextView) {
@@ -72,10 +82,6 @@ class AddViewController: UIViewController, UITextViewDelegate {
             textView.text = ""
             textView.textColor = UIColor.blackColor()
         }
-    }
-    
-    func hideKeyboard(){
-        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {

@@ -113,12 +113,15 @@ class DetailViewController: UIViewController,UITextFieldDelegate, UINavigationCo
     }
     
     @IBAction func FixDone(sender: UIBarButtonItem) {
+        if listTitles[cur] != MainTitleField.text! {
+            KOSessionTask.storyPostNoteTaskWithContent("저는 \(listTitles[cur])를 \(MainTitleField.text!)로 고쳤습니다.", permission: KOStoryPostPermission.OnlyMe, sharable: false, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
+        }
         listTitles[cur] = MainTitleField.text!
         let contentsTemp = DetailContentField.text!
         listContents[cur] = contentsTemp
         listImage[cur] = captureImage!
         captureImage = UIImage(named: "listImageTempPlace.png")
-        KOSessionTask.storyPostNoteTaskWithContent("저는 \(listTitles[cur])를 \(MainTitleField.text!)로 고쳤습니다.", permission: KOStoryPostPermission.OnlyMe, sharable: false, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
+        
         self.navigationController?.popViewControllerAnimated(true)
     }
     
