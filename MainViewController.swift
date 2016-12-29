@@ -221,7 +221,6 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             listImage.removeAtIndex(row)
             listCheck.removeAtIndex(row)
             listRealDeadLines.removeAtIndex(row)
-            listView[indexPath.row].removeFromSuperview()
             listView.removeAtIndex(row)
             listNSDate.removeAtIndex(row)
             
@@ -327,8 +326,13 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         mainTableView.backgroundView = image
         mainTableView.sectionHeaderHeight = 30
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateView), name: "updateRoot", object: nil)
 
         //        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(MainViewController.Alert), userInfo: nil, repeats: true)
+    }
+    
+    func updateView(){
+        mainTableView.reloadData()
     }
     
     override func viewDidAppear(animated: Bool) {

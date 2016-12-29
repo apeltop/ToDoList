@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 break;
             }
         }
+        NSNotificationCenter.defaultCenter().postNotificationName("updateRoot", object: nil)
     }
     
 //    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
