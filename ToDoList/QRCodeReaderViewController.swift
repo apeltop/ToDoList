@@ -89,7 +89,7 @@ class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjec
                     
                     vc.receivedContants = objMetadataMachineReadableCodeObject.stringValue
                     
-                    listCheck[self.cur!] = true
+                    listCheck[self.cur!] = 1
                     
                     let main:UIAlertController = UIAlertController(title: "확인", message: "\(vc.receivedContants)님에게 검사를 성공적으로 받았습니다.", preferredStyle: .Alert)
                     let action:UIAlertAction = UIAlertAction(title: "예", style: .Default, handler: {(alert:UIAlertAction!) -> Void in

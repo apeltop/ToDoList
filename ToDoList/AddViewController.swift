@@ -36,12 +36,13 @@ class AddViewController: UIViewController, UITextViewDelegate {
         
         // 1st notification
         let notification = UILocalNotification()
+        notification.alertTitle = "Check It"
         notification.alertBody = "\(Title_text.text!)의 기간이 만료되었습니다."
         notification.alertAction = "open"
         notification.timeZone = NSTimeZone.systemTimeZone()
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.fireDate = datePicker.date
-        notification.userInfo = ["UUID": "\(Title_text.text!)\(Selection_time.text!)까지", "Title": Title_text.text!, "SelectTime": Selection_time.text!, "Row": listTitles.count]
+        notification.userInfo = ["UUID": "\(Title_text.text!)\(Selection_time.text!)까지", "Title": Title_text.text!, "SelectTime": Selection_time.text!]
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
         
@@ -190,7 +191,7 @@ class AddViewController: UIViewController, UITextViewDelegate {
         listContents.insert(to_do.text!, atIndex: whr)
         listRealDeadLines.insert(Selection_time.text! + "까지", atIndex: whr)
         listImage.insert(UIImage(named: "listImageTempPlace.png")!, atIndex: whr)
-        listCheck.insert(false, atIndex: whr)
+        listCheck.insert(0, atIndex: whr)
         listDeadLines.insert(dead, atIndex: whr)
         listNSDate.insert(pickedDate, atIndex: whr)
     }

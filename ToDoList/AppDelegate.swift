@@ -43,6 +43,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         KOSessionTask.storyPostTaskWithContent("\(notification.userInfo!["Title"]!)를 \(notification.userInfo!["SelectTime"]!)까지 미완료하였습니다.", permission: .OnlyMe, imageUrl: nil, androidExecParam: nil, iosExecParam: nil, completionHandler: nil)
+        
+        for (var i = 0; i < listTitles.count; i+=1){
+            if listRealDeadLines[i] == "\(notification.userInfo!["SelectTime"]!)까지" {
+                listCheck[i] = -1
+                break;
+            }
+        }
     }
     
 //    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {

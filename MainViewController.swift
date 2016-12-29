@@ -16,7 +16,7 @@ var listTitles: [String] = ["나르샤캠프 iOS반 어플 마무리"]
 var listContents: [String] = ["나르샤 캠프 12월 초까지 프로젝트 끝내기"]
 var listDeadLines: [String] = ["09:00"]
 var listRealDeadLines: [String] = ["2016-12-30(금) 09:00까지"]
-var listCheck: [Bool] = [false]
+var listCheck: [Int] = [0]
 var listImage = Array<UIImage>()
 var listView = Array<UIView>()
 var listNSDate = Array<NSDate>()
@@ -46,6 +46,7 @@ extension String {
 class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource{
     var checked:UIImage = UIImage(named: "com.png")!
     var notChecked:UIImage = UIImage(named: "notCom.png")!
+    var expireChecked:UIImage = UIImage(named: "x.png")!
     var searchController:UISearchController!
     
     var curDate:String?
@@ -140,16 +141,19 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         row = row+indexPath.row
         cell.listTitle.text = listTitles[row]
         cell.listDeadLine.text = listDeadLines[row]
-        if (listCheck[row] == true){
+        if (listCheck[row] == 1){
             cell.checkImg.setImage(checked, forState: .Normal)
             cell.checkImg.tag = temp
             temp+=1
             cell.checkImg.userInteractionEnabled = false
         }
-        else{
+        else if (listCheck[row] == 0){
             cell.checkImg.setImage(notChecked, forState: .Normal)
             cell.checkImg.tag = temp
             temp+=1
+        } else {
+            cell.checkImg.setImage(expireChecked, forState: .Normal)
+            cell.checkImg.tag = temp
         }
         /*if flag == false {
          for(var i = 0; i < listView.count; i+=1){
